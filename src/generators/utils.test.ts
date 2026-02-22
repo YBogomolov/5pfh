@@ -42,10 +42,10 @@ describe("resolveDice", () => {
 
     expect(
       resolveDice(
-        "Require 1D6 credits of surgery immediately, or suffer -2D10 permanent reduction to highest of Speed or Toughness.",
+        "Require 1D6+1 credits of surgery immediately, or suffer -2D10 permanent reduction to highest of Speed or Toughness.",
       ),
     ).toBe(
-      "Require 6 credits of surgery immediately, or suffer -12 permanent reduction to highest of Speed or Toughness.",
+      "Require 7 credits of surgery immediately, or suffer -12 permanent reduction to highest of Speed or Toughness.",
     );
   });
 });
