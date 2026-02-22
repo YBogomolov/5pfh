@@ -1,5 +1,5 @@
 import { rollDice } from "@/lib/random";
-import type { SimpleGenerator, TableGenerator, TableGeneratorEntry } from "@/lib/types";
+import type { Dice, SimpleGenerator, TableGenerator, TableGeneratorEntry } from "@/lib/types";
 
 import * as gen from "./data";
 
@@ -12,7 +12,7 @@ export const resolveDice = (value: string): string => {
     const match = xDyRegex.exec(localValue);
     if (!match) break;
     const [num, sides] = match[0].split("D") as [string, string];
-    const total = Array.from({ length: +num }, () => rollDice(+sides)).reduce((a, b) => a + b);
+    const total = Array.from({ length: +num }, () => rollDice(+sides as Dice)).reduce((a, b) => a + b);
     localValue = localValue.replace(match[0], total.toString());
   }
 
@@ -22,7 +22,7 @@ export const resolveDice = (value: string): string => {
     const match = xDhyRegex.exec(localValue);
     if (!match) break;
     const [num, sides] = match[0].split("Dh") as [string, string];
-    const max = Math.max(...Array.from({ length: +num }, () => rollDice(+sides)));
+    const max = Math.max(...Array.from({ length: +num }, () => rollDice(+sides as Dice)));
     localValue = localValue.replace(match[0], max.toString());
   }
 
@@ -32,7 +32,7 @@ export const resolveDice = (value: string): string => {
     const match = xDlyRegex.exec(localValue);
     if (!match) break;
     const [num, sides] = match[0].split("Dl") as [string, string];
-    const max = Math.min(...Array.from({ length: +num }, () => rollDice(+sides)));
+    const max = Math.min(...Array.from({ length: +num }, () => rollDice(+sides as Dice)));
     localValue = localValue.replace(match[0], max.toString());
   }
 

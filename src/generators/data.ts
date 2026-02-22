@@ -1238,6 +1238,47 @@ const rewardsSubtable: TableGenerator = {
 };
 //#endregion
 
+//#region Galactic war
+const galacticWarTable: TableGenerator = {
+  title: "Galactic War Progress",
+  dice: "2D6",
+  table: [
+    {
+      roll: "1-4",
+      columns: [
+        { header: "Result", result: "Lost to Unity" },
+        { header: "Effect", result: "The planet is lost to the invaders and cannot be visited again" },
+      ],
+    },
+    {
+      roll: "5-7",
+      columns: [
+        { header: "Result", result: "Contested" },
+        { header: "Effect", result: "No progress" },
+      ],
+    },
+    {
+      roll: "8-9",
+      columns: [
+        { header: "Result", result: "Making Ground" },
+        { header: "Effect", result: "Add +1 to all future rolls on this table" },
+      ],
+    },
+    {
+      roll: "10-12",
+      columns: [
+        { header: "Result", result: "Unity Victorious" },
+        {
+          header: "Effect",
+          result:
+            "The planet can now be visited again. Due to increased troop presence, all future Invasion Threat rolls on this world are at -2",
+        },
+      ],
+    },
+  ],
+};
+//#endregion
+
 //#region ALL
 export const generators = {
   "Crew Type": crewType,
@@ -1273,5 +1314,7 @@ export const generators = {
   "Utility Items Subtable": utilityItemsSubtable,
   "Ship Items Subtable": shipItemsSubtable,
   "Rewards Subtable": rewardsSubtable,
+
+  "Galactic War Progress": galacticWarTable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion

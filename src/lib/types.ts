@@ -2,6 +2,8 @@ export type NonEmptyArray<T> = [T, ...T[]];
 
 export type Roll = `${number}-${number}`;
 
+export type Dice = 6 | 10 | "2D6" | 100;
+
 export interface SimpleGeneratorEntry {
   readonly roll: Roll;
   readonly result: string;
@@ -19,7 +21,7 @@ export interface TableGeneratorEntry {
 
 export interface Generator<Entry> {
   readonly title: string;
-  readonly dice: 6 | 10 | 100;
+  readonly dice: Dice;
   readonly table: NonEmptyArray<Entry>;
 }
 
