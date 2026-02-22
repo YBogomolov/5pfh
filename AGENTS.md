@@ -13,6 +13,7 @@
 - **Styling:** Tailwind CSS v4. No CSS-in-JS or `.css` files unless absolutely necessary.
 - **Database:** Dexie.js for IndexedDB. Use `useLiveQuery` for all data fetching.
 - **Icons:** Lucide React.
+- **Tests:** Vitest
 
 ## Anti-Slop Guardrails
 
@@ -29,6 +30,7 @@
 5. Always mark fields of types/interfaces as `readonly`.
 6. NEVER MUTATE FUNCTION ARGUMENTS.
 7. Prefer immutable data to mutations. Do not use `let` variables.
+8. Any exported function must be covered with tests.
 
 ## Feature Implementation Protocol
 
@@ -43,7 +45,8 @@ After you're done with a feature or fix, you need to check that your code compil
 
 - `npm run typecheck` to compile your code;
 - `npm run lint` to run ESLint;
-- `npm run format` to run prettier and reformat your code.
+- `npm run format` to run prettier and reformat your code;
+- `npm test` to run tests.
 
 # Tool-Specific Guidance
 

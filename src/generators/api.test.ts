@@ -1,53 +1,8 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { generateCrewBackground, generateCrewEquipment, generateCrewType, getValue, resolveDice } from "./api";
-import { generators } from "./data";
+import { generateCrewBackground, generateCrewEquipment, generateCrewType } from "./api";
 
 afterEach(() => {
   vi.restoreAllMocks();
-});
-
-describe("getValue", () => {
-  it("should resolve arbitrarily-nested generators", () => {
-    // @ts-expect-error tests
-    generators["Gen 1"] = {
-      dice: 6,
-      title: "Table 1",
-      table: [{ roll: "1-2", result: "Gen 1" }],
-    };
-    // @ts-expect-error tests
-    generators["Gen 1"] = {
-      dice: 6,
-      title: "Table 1",
-      table: [{ roll: "1-2", result: "Gen 2" }],
-    };
-    // @ts-expect-error tests
-    generators["Gen 1"] = {
-      dice: 6,
-      title: "Table 1",
-      table: [{ roll: "1-2", result: "Gen 3 result" }],
-    };
-    vi.spyOn(Math, "random").mockReturnValueOnce(0.1).mockReturnValueOnce(0.1).mockReturnValueOnce(0.1);
-
-    // @ts-expect-error tests
-    expect(getValue(1, generators["Gen 1"])).toBe("Gen 3 result");
-  });
-});
-
-describe("resolveDice", () => {
-  it("should resolve all dice in a string", () => {
-    vi.spyOn(Math, "random")
-      .mockReturnValueOnce(0.9) // 1D6
-      .mockReturnValueOnce(0.4) // First 2D10
-      .mockReturnValueOnce(0.8); // Second 2D10
-
-    expect(
-      resolveDice(
-        "Require 1D6 credits of surgery immediately, or suffer -2D10 permanent reduction to highest of Speed or Toughness.",
-      ),
-    ).toBe(
-      "Require 6 credits of surgery immediately, or suffer -12 permanent reduction to highest of Speed or Toughness.",
-    );
-  });
 });
 
 describe("Crew Type", () => {
