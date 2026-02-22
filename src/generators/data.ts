@@ -1,5 +1,9 @@
 import type { SimpleGenerator, TableGenerator } from "@/lib/types";
 
+//! Conventions:
+// - "2Dh6" — roll 2D6, keep highest
+// - "2Dl6" — roll 2D6, keep lowest
+
 //#region Crew Type
 const crewType: SimpleGenerator = {
   title: "Crew Type",
@@ -908,6 +912,332 @@ const botInjuryTable: TableGenerator = {
 };
 //#endregion
 
+//#region Loot
+const lootTable: SimpleGenerator = {
+  title: "Loot Table",
+  dice: 100,
+  table: [
+    { roll: "1-25", result: "Weapon Category Subtable" },
+    { roll: "26-35", result: "Roll twice on Weapon Category Subtable. Both items require Repair" },
+    { roll: "36-45", result: "Roll twice on Gear Subtable. Both items require Repair" },
+    { roll: "46-65", result: "Gear Subtable" },
+    { roll: "66-80", result: "Odds and Ends Subtable" },
+    { roll: "81-100", result: "Rewards Subtable" },
+  ],
+};
+
+const weaponCategorySubtable: SimpleGenerator = {
+  title: "Weapon Category Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-35", result: "Slug Weapons Subtable" },
+    { roll: "36-50", result: "Energy Weapons Subtable" },
+    { roll: "51-65", result: "Special Weapons Subtable" },
+    { roll: "66-85", result: "Melee Weapons Subtable" },
+    { roll: "86-100", result: "Grenades Subtable" },
+  ],
+};
+
+const energyWeaponsSubtable: SimpleGenerator = {
+  title: "Energy Weapons Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-20", result: "Hand Laser" },
+    { roll: "21-35", result: "Beam Pistol" },
+    { roll: "36-55", result: "Infantry Laser" },
+    { roll: "56-70", result: "Blast Pistol" },
+    { roll: "71-90", result: "Blast Rifle" },
+    { roll: "91-100", result: "Hyper Blaster" },
+  ],
+};
+
+const slugWeaponsSubtable: SimpleGenerator = {
+  title: "Slug Weapons Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-5", result: "Hold Out Pistol" },
+    { roll: "6-13", result: "Hand Gun" },
+    { roll: "14-18", result: "Scrap Pistol" },
+    { roll: "19-26", result: "Machine Pistol" },
+    { roll: "27-32", result: "Duelling Pistol" },
+    { roll: "33-37", result: "Hand Cannon" },
+    { roll: "38-46", result: "Colony Rifle" },
+    { roll: "47-56", result: "Military Rifle" },
+    { roll: "57-65", result: "Shotgun" },
+    { roll: "66-70", result: "Flak Gun" },
+    { roll: "71-78", result: "Hunting Rifle" },
+    { roll: "79-83", result: "Marksman's Rifle" },
+    { roll: "84-92", result: "Auto Rifle" },
+    { roll: "93-100", result: "Rattle Gun" },
+  ],
+};
+
+const specialWeaponsSubtable: SimpleGenerator = {
+  title: "Special Weapons Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-20", result: "Needle Rifle" },
+    { roll: "21-45", result: "Plasma Rifle" },
+    { roll: "46-60", result: "Fury Rifle" },
+    { roll: "61-75", result: "Shell Gun" },
+    { roll: "76-90", result: "Cling Fire Pistol" },
+    { roll: "91-100", result: "Hand Flamer" },
+  ],
+};
+
+const meleeWeaponsSubtable: SimpleGenerator = {
+  title: "Melee Weapons Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-20", result: "Blade" },
+    { roll: "21-40", result: "Brutal Melee Weapon" },
+    { roll: "41-55", result: "Boarding Saber" },
+    { roll: "56-75", result: "Ripper Sword" },
+    { roll: "76-85", result: "Shatter Axe" },
+    { roll: "86-90", result: "Power Claw" },
+    { roll: "91-95", result: "Glare Sword" },
+    { roll: "96-100", result: "Suppression Maul" },
+  ],
+};
+
+const grenadesSubtable: SimpleGenerator = {
+  title: "Grenades Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-60", result: "3 Frakk Grenades" },
+    { roll: "61-100", result: "3 Dazzle grenades" },
+  ],
+};
+
+const gearSubtableLoot: SimpleGenerator = {
+  title: "Gear Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-20", result: "Gun Mods Subtable" },
+    { roll: "21-40", result: "Gun Sights Subtable" },
+    { roll: "41-75", result: "Protective Items Subtable" },
+    { roll: "76-100", result: "Utility Items Subtable" },
+  ],
+};
+
+const gunModsSubtable: SimpleGenerator = {
+  title: "Gun Mods Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-10", result: "Assault Blade" },
+    { roll: "11-20", result: "Beam Light" },
+    { roll: "21-35", result: "Bipod" },
+    { roll: "36-55", result: "Hot Shot Pack" },
+    { roll: "56-65", result: "Cyber-configurable Nano-Sludge" },
+    { roll: "66-80", result: "Stabilizer" },
+    { roll: "81-90", result: "Shock Attachment" },
+    { roll: "91-100", result: "Upgrade Kit" },
+  ],
+};
+
+const gunSightsSubtable: SimpleGenerator = {
+  title: "Gun Sights Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-20", result: "Laser Sight" },
+    { roll: "21-45", result: "Quality Sight" },
+    { roll: "46-70", result: "Seeker Sight" },
+    { roll: "71-85", result: "Tracker Sight" },
+    { roll: "86-100", result: "Unity Battle Sight" },
+  ],
+};
+
+const protectiveItemsSubtable: SimpleGenerator = {
+  title: "Protective Items Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-5", result: "Battle Dress" },
+    { roll: "6-15", result: "Camo Cloak" },
+    { roll: "16-40", result: "Combat Armor" },
+    { roll: "41-50", result: "Deflector Field" },
+    { roll: "51-65", result: "Flak Screen" },
+    { roll: "66-75", result: "Flex-Armor" },
+    { roll: "76-90", result: "Frag Vest" },
+    { roll: "91-95", result: "Screen Generator" },
+    { roll: "96-100", result: "Stealth Gear" },
+  ],
+};
+
+const utilityItemsSubtable: SimpleGenerator = {
+  title: "Utility Items Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-6", result: "Auto Sensor" },
+    { roll: "7-11", result: "Battle Visor" },
+    { roll: "12-17", result: "Communicator" },
+    { roll: "18-23", result: "Concealed Blade" },
+    { roll: "24-29", result: "Displacer" },
+    { roll: "30-34", result: "Distraction Bot" },
+    { roll: "35-38", result: "Grapple Launcher" },
+    { roll: "39-43", result: "Grav Dampener" },
+    { roll: "44-49", result: "Hazard Suit" },
+    { roll: "50-54", result: "Hover Board" },
+    { roll: "55-57", result: "Insta-Wall" },
+    { roll: "58-63", result: "Jump Belt" },
+    { roll: "64-70", result: "Motion Tracker" },
+    { roll: "71-75", result: "Multi-Cutter" },
+    { roll: "76-79", result: "Robo-Rabbit's Foot" },
+    { roll: "80-84", result: "Scanner Bot" },
+    { roll: "85-89", result: "Snooper Bot" },
+    { roll: "90-93", result: "Sonic Emitter" },
+    { roll: "94-96", result: "Steel Boots" },
+    { roll: "97-100", result: "Time Distorter" },
+  ],
+};
+
+const oddsAndEndsTable: SimpleGenerator = {
+  title: "Odds and Ends Table",
+  dice: 100,
+  table: [
+    { roll: "1-55", result: "Consumables Subtable" },
+    { roll: "56-70", result: "Implants Subtable" },
+    { roll: "71-100", result: "Ship Items Subtable" },
+  ],
+};
+
+const consumablesSubtable: SimpleGenerator = {
+  title: "Consumables Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-20", result: "Booster Pills" },
+    { roll: "21-30", result: "Combat Serum" },
+    { roll: "31-40", result: "Kiranin Crystals" },
+    { roll: "41-55", result: "Rage Out" },
+    { roll: "56-70", result: "Still" },
+    { roll: "71-100", result: "Stim-pack" },
+  ],
+};
+
+const implantsSubtable: SimpleGenerator = {
+  title: "Implants Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-10", result: "AI Companion" },
+    { roll: "11-16", result: "Body Wire" },
+    { roll: "17-28", result: "Boosted Arm" },
+    { roll: "29-40", result: "Boosted Leg" },
+    { roll: "41-50", result: "Cyber Hand" },
+    { roll: "51-61", result: "Genetic Defenses" },
+    { roll: "62-71", result: "Health Boost" },
+    { roll: "72-79", result: "Nerve Adjuster" },
+    { roll: "80-85", result: "Neural Optimization" },
+    { roll: "86-94", result: "Night Sight" },
+    { roll: "95-100", result: "Pain Suppressor" },
+  ],
+};
+
+const shipItemsSubtable: SimpleGenerator = {
+  title: "Ship Items Subtable",
+  dice: 100,
+  table: [
+    { roll: "1-4", result: "Analyzer" },
+    { roll: "5-11", result: "Colonist Ration Packs" },
+    { roll: "12-17", result: "Duplicator" },
+    { roll: "18-24", result: "Fake ID" },
+    { roll: "25-31", result: "Fixer" },
+    { roll: "32-34", result: "Genetic Reconfiguration Kit" },
+    { roll: "35-39", result: "Loaded Dice" },
+    { roll: "40-44", result: "Lucky Dice" },
+    { roll: "45-48", result: "Mk II Translator" },
+    { roll: "49-56", result: "Med-patch" },
+    { roll: "57-60", result: "Meditation Orb" },
+    { roll: "61-67", result: "Nano-doc" },
+    { roll: "68-71", result: "Novelty Stuffed Animal" },
+    { roll: "72-74", result: "Purifier" },
+    { roll: "75-78", result: "Repair Bot" },
+    { roll: "79-83", result: "Sector Permit" },
+    { roll: "84-91", result: "Spare Parts" },
+    { roll: "92-96", result: "Teach-Bot" },
+    { roll: "97-100", result: "Transcender" },
+  ],
+};
+
+const rewardsSubtable: TableGenerator = {
+  title: "Rewards Subtable",
+  dice: 100,
+  table: [
+    {
+      roll: "1-10",
+      columns: [
+        { header: "Reward", result: "Documents" },
+        { header: "Result", result: "1 Rumor" },
+      ],
+    },
+    {
+      roll: "11-20",
+      columns: [
+        { header: "Reward", result: "Data Files" },
+        { header: "Result", result: "2 Rumors" },
+      ],
+    },
+    {
+      roll: "21-25",
+      columns: [
+        { header: "Reward", result: "Scrap" },
+        { header: "Result", result: "3 credits" },
+      ],
+    },
+    {
+      roll: "26-40",
+      columns: [
+        { header: "Reward", result: "Cargo Crate" },
+        { header: "Result", result: "1D6 credits" },
+      ],
+    },
+    {
+      roll: "41-55",
+      columns: [
+        { header: "Reward", result: "Valuable Materials" },
+        { header: "Result", result: "1D6+2 credits" },
+      ],
+    },
+    {
+      roll: "56-70",
+      columns: [
+        { header: "Reward", result: "Rare Substance" },
+        { header: "Result", result: "2Dh6 credits" },
+      ],
+    },
+    {
+      roll: "71-85",
+      columns: [
+        { header: "Reward", result: "Ship Parts" },
+        { header: "Result", result: "Discount your next ship component purchase by 1D6 credits." },
+      ],
+    },
+    {
+      roll: "86-90",
+      columns: [
+        { header: "Reward", result: "Military Ship Part" },
+        {
+          header: "Result",
+          result: "Discount your next ship component purchase by 1D6+2 credits.",
+        },
+      ],
+    },
+    {
+      roll: "91-95",
+      columns: [
+        { header: "Reward", result: "Mysterious Items" },
+        { header: "Result", result: "2 story points" },
+      ],
+    },
+    {
+      roll: "96-100",
+      columns: [
+        { header: "Reward", result: "Personal Item" },
+        { header: "Result", result: "3 story points" },
+      ],
+    },
+  ],
+};
+//#endregion
+
 //#region ALL
 export const generators = {
   "Crew Type": crewType,
@@ -925,5 +1255,23 @@ export const generators = {
 
   "Injury Table": injuryTable,
   "Bot Injury Table": botInjuryTable,
+
+  "Loot Table": lootTable,
+  "Weapon Category Subtable": weaponCategorySubtable,
+  "Energy Weapons Subtable": energyWeaponsSubtable,
+  "Slug Weapons Subtable": slugWeaponsSubtable,
+  "Special Weapons Subtable": specialWeaponsSubtable,
+  "Melee Weapons Subtable": meleeWeaponsSubtable,
+  "Grenades Subtable": grenadesSubtable,
+  "Gear Subtable": gearSubtableLoot,
+  "Gun Mods Subtable": gunModsSubtable,
+  "Gun Sights Subtable": gunSightsSubtable,
+  "Protective Items Subtable": protectiveItemsSubtable,
+  "Odds and Ends Table": oddsAndEndsTable,
+  "Consumables Subtable": consumablesSubtable,
+  "Implants Subtable": implantsSubtable,
+  "Utility Items Subtable": utilityItemsSubtable,
+  "Ship Items Subtable": shipItemsSubtable,
+  "Rewards Subtable": rewardsSubtable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion

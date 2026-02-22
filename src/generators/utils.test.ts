@@ -31,6 +31,16 @@ describe("getValue", () => {
     // @ts-expect-error tests
     expect(getValue(1, generators["Gen 1"])).toBe("Gen 3 result");
   });
+
+  it('should resolve "Roll twice on X" values', () => {
+    vi.spyOn(Math, "random")
+      .mockReturnValueOnce(0.1)
+      .mockReturnValueOnce(0.1) // First roll
+      .mockReturnValueOnce(0.1)
+      .mockReturnValueOnce(0.2); // Second roll
+
+    expect(getValue(27, generators["Loot Table"])).toBe("Hand Gun, Machine Pistol. Both items require Repair");
+  });
 });
 
 describe("resolveDice", () => {

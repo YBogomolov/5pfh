@@ -50,6 +50,10 @@ After you're done with a feature or fix, you need to check that your code compil
 
 # Tool-Specific Guidance
 
+## Random tables
+
+The main entry point to the Five Parsecs From Home random tables is at ./src/generators/api.ts file. You should use functions defined in that module to get the rolled result on a table. You only can add new functions to this file — do not modify data.ts or anything else unless explicitly permitted by the user.
+
 ## shadcn/ui
 
 1. Adding a component: `npx shadcn@latest add <component name>`. Refer to the documentation below for shadcn/ui reference.
