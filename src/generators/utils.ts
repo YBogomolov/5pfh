@@ -7,7 +7,7 @@ export const resolveDice = (value: string): string => {
   let localValue = value.slice();
 
   // Regular xDy resolution:
-  const xDyRegex = /\dD\d{1,3}/;
+  const xDyRegex = /\dD\d{1,3}(?!\+[a-zA-Z])/;
   while (xDyRegex.test(localValue)) {
     const match = xDyRegex.exec(localValue);
     if (!match) break;

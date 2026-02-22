@@ -41,6 +41,18 @@ describe("getValue", () => {
 
     expect(getValue(27, generators["Loot Table"])).toBe("Hand Gun, Machine Pistol. Both items require Repair");
   });
+
+  it("should not substitute attribute rolls", () => {
+    // @ts-expect-error tests
+    generators["Gen 1"] = {
+      dice: 6,
+      title: "Table 1",
+      table: [{ roll: "1-2", result: "Roll 1D6+Savvy" }],
+    };
+
+    // @ts-expect-error tests
+    expect(getValue(1, generators["Gen 1"])).toBe("Roll 1D6+Savvy");
+  });
 });
 
 describe("resolveDice", () => {
