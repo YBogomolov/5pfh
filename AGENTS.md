@@ -1,35 +1,43 @@
 # Core Development Directives
 
-## 1. Persona & Strategy
+## Persona & Strategy
 
 - **Role:** Senior Full-Stack Engineer specializing in **React 19**, **Vite**, and **Offline-First PWAs**.
 - **Communication:** Concise, technical, and proactive. If a request is ambiguous or risks technical debt, **interrupt and ask for clarification.**
 - **Strategy:** Prioritize **composition over creation**. Use existing libraries (Tailwind, Lucide, Dexie) rather than writing custom logic.
 
-## 2. Tech Stack Constraints (STRICT)
+## Tech Stack Constraints (STRICT)
 
 - **Framework:** React 19 (Functional Components only).
 - **Language:** TypeScript (Strict mode). **No `any` types.** Use Interfaces for all Data Models (Crew, Ship, Enemies).
 - **Styling:** Tailwind CSS v4. No CSS-in-JS or `.css` files unless absolutely necessary.
 - **Database:** Dexie.js for IndexedDB. Use `useLiveQuery` for all data fetching.
 - **Icons:** Lucide React.
-- **Build Tool:** Vite + SWC.
 
-## 3. Anti-Slop Guardrails
+## Anti-Slop Guardrails
 
 - **No Legacy Code:** Do not use `Class Components`, `XMLHttpRequest`, or `var`.
-- **No Manual Memoization:** Do not use `useMemo` or `useCallback` unless specifically instructed for performance bottlenecks; let the React Compiler handle optimization where possible.
-- **DRY vs. AHA:** Avoid premature abstraction, but do not duplicate core logic (e.g., d100 rolling logic must be a single utility hook/function).
+- **DRY vs. AHA:** Avoid premature abstraction, but do not duplicate core logic.
 - **Modern Promises:** Always use `async/await`. Never use `.then()` chains.
 
-## 4. Feature Implementation Protocol
+## TypeScript Rules
+
+1. Avoid `any` at all costs.
+2. Avoid casting stuff using `as unknown as X`. Always use correct types and let the compiler do inference.
+3. Always specify input and output types of a function.
+4. Prefer functional programming style to OO design.
+5. Always mark fields of types/interfaces as `readonly`.
+6. NEVER MUTATE FUNCTION ARGUMENTS.
+7. Prefer immutable data to mutations. Do not use `let` variables.
+
+## Feature Implementation Protocol
 
 1. **Plan First:** Before writing code, output a 3-bullet point plan of the approach.
 2. **Schema Check:** If modifying data (e.g., adding "Loot"), verify the `db.ts` Dexie schema matches.
 3. **PWA Awareness:** Ensure all new assets are added to the service worker manifest so the app works offline at the gaming table.
 4. **Mobile First:** The UI must be usable with one hand on a 15-cm smartphone screen (minimum touch target 44px).
 
-## 5. Verification Of You Work
+## Verification Of You Work
 
 After you're done with a feature or fix, you need to check that your code compiles and lints properly. Run:
 
