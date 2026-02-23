@@ -1,64 +1,80 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { Slot } from "radix-ui"
-
-import { cn } from "@/lib/utils"
+import { Frame } from "@/components/ui/frame";
+import { twMerge } from "tailwind-merge";
+import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  [
+    "group font-bold mb-2 relative px-8 py-2 cursor-pointer transition-all [&:hover_svg]:drop-shadow-xl outline-none",
+    "[&>span]:relative [&>span]:flex [&>span]:items-center [&>span]:justify-center [&>span]:group-hover:text-shadow-xl",
+  ],
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default:
+          "[--color-frame-1-stroke:var(--color-primary)] [--color-frame-1-fill:var(--color-primary)]/22 [--color-frame-2-stroke:var(--color-primary)] [--color-frame-2-fill:var(--color-primary)]/10 text-primary-foreground [&:hover_svg]:drop-shadow-primary/50 [&>span]:group-hover:text-shadow-primary/50",
+        accent:
+          "[--color-frame-1-stroke:var(--color-accent)] [--color-frame-1-fill:var(--color-accent)]/40 [--color-frame-2-stroke:var(--color-accent)] [--color-frame-2-fill:var(--color-accent)]/20 text-accent-foreground [&:hover_svg]:drop-shadow-accent/50 [&>span]:group-hover:text-shadow-accent/50",
         destructive:
-          "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "[--color-frame-1-stroke:var(--color-destructive)] [--color-frame-1-fill:var(--color-destructive)]/22 [--color-frame-2-stroke:var(--color-destructive)] [--color-frame-2-fill:var(--color-destructive)]/10 text-destructive-foreground [&:hover_svg]:drop-shadow-destructive/50 [&>span]:group-hover:text-shadow-destructive/50",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
+          "[--color-frame-1-stroke:var(--color-secondary)] [--color-frame-1-fill:var(--color-secondary)]/15 [--color-frame-2-stroke:var(--color-secondary)] [--color-frame-2-fill:var(--color-secondary)]/10 text-secondary-foreground [&:hover_svg]:drop-shadow-secondary/50 [&>span]:group-hover:text-shadow-secondary/50",
+        success:
+          "[--color-frame-1-stroke:var(--color-success)] [--color-frame-1-fill:var(--color-success)]/22 [--color-frame-2-stroke:var(--color-success)] [--color-frame-2-fill:var(--color-success)]/10 text-success-foreground [&:hover_svg]:drop-shadow-success/50 [&>span]:group-hover:text-shadow-success/50",
       },
-      size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        xs: "h-6 gap-1 rounded-md px-2 text-xs has-[>svg]:px-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
-        "icon-xs": "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm": "size-8",
-        "icon-lg": "size-10",
+      shape: {
+        default: "",
+        flat: "[--color-frame-2-stroke:transparent] [--color-frame-2-fill:transparent]",
+        simple: "ps-8 pe-6",
+        "tab-left": "",
+        "tab-center": "",
+        "tab-right": "",
       },
     },
     defaultVariants: {
       variant: "default",
-      size: "default",
+      shape: "default",
     },
   }
-)
+);
 
 function Button({
   className,
+  children,
   variant = "default",
-  size = "default",
-  asChild = false,
+  shape = "default",
+  customPaths,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
+    customPaths?: string[];
   }) {
-  const Comp = asChild ? Slot.Root : "button"
-
   return (
-    <Comp
-      data-slot="button"
-      data-variant={variant}
-      data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+    <button
       {...props}
-    />
-  )
+      className={twMerge(buttonVariants({ variant, shape, className }))}
+    >
+      <div className="absolute inset-0 -mb-2" style={{ transform: 'translateZ(0)' }}>
+        {!customPaths && (shape == "default" || shape == "flat") && (
+          <Frame
+            paths={JSON.parse(
+              '[{"show":true,"style":{"strokeWidth":"1","stroke":"var(--color-frame-1-stroke)","fill":"var(--color-frame-1-fill)"},"path":[["M","17","0"],["L","100% - 7","0"],["L","100% + 0","0% + 9.5"],["L","100% - 18","100% - 6"],["L","4","100% - 6"],["L","0","100% - 15"],["L","17","0"]]},{"show":true,"style":{"strokeWidth":"1","stroke":"var(--color-frame-2-stroke)","fill":"var(--color-frame-2-fill)"},"path":[["M","9","100% - 6"],["L","100% - 22","100% - 6"],["L","100% - 25","100% + 0"],["L","12","100% + 0"],["L","9","100% - 6"]]}]'
+            )}
+          />
+        )}
+        {!customPaths && shape == "simple" && (
+          <Frame
+            paths={JSON.parse(
+              '[{"show":true,"style":{"strokeWidth":"1","stroke":"var(--color-frame-1-stroke)","fill":"var(--color-frame-1-fill)"},"path":[["M","17","0"],["L","100% - 0","0"],["L","100% - 0","100% - 6"],["L","0% + 3","100% - 6"],["L","0% - 0","100% - 16"],["L","17","0"]]},{"show":true,"style":{"strokeWidth":"1","stroke":"var(--color-frame-2-stroke)","fill":"var(--color-frame-2-fill)"},"path":[["M","8","100% - 6"],["L","100% - 5","100% - 6"],["L","100% - 7","100% - 0"],["L","10","100% - 0"],["L","8","100% - 6"]]}]'
+            )}
+          />
+        )}
+        {customPaths?.map((customPath, customPathKey) => {
+          return <Frame key={customPathKey} paths={JSON.parse(customPath)} />;
+        })}
+      </div>
+      <span>{children}</span>
+    </button>
+  );
 }
 
-export { Button, buttonVariants }
+export { Button };

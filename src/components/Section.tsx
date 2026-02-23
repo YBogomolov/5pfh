@@ -7,9 +7,19 @@ interface SectionProps {
 
 export function Section({ title, children }: SectionProps): React.ReactElement {
   return (
-    <fieldset className="rounded-lg border border-border p-4">
-      <legend className="px-2 text-sm font-medium text-muted-foreground">{title}</legend>
-      <div className="flex flex-col gap-3">{children}</div>
-    </fieldset>
+    <div
+      className="relative border border-accent p-6 mt-3"
+      role="group"
+      aria-labelledby={`section-title-${title.replace(/\s+/g, "-").toLowerCase()}`}
+    >
+      <span
+        id={`section-title-${title.replace(/\s+/g, "-").toLowerCase()}`}
+        className="absolute -top-3 left-3 bg-black px-2 text-sm font-medium text-accent"
+      >
+        {title}
+      </span>
+
+      <div className="flex flex-col gap-6">{children}</div>
+    </div>
   );
 }

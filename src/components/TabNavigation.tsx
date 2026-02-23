@@ -24,7 +24,7 @@ interface TabNavigationProps {
 
 export function TabNavigation({ activeTab, onTabChange }: TabNavigationProps): React.ReactElement {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-accent bg-background">
       <div className="flex h-16 items-center justify-around">
         {tabs.map((tab) => {
           const Icon = tab.icon;
@@ -35,7 +35,7 @@ export function TabNavigation({ activeTab, onTabChange }: TabNavigationProps): R
               onClick={() => onTabChange(tab.id)}
               className={cn(
                 "flex min-h-11 min-w-16 flex-col items-center justify-center gap-1 rounded-lg px-3 transition-colors",
-                isActive ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                isActive ? "text-accent" : "text-muted-foreground hover:text-foreground",
               )}
             >
               <Icon className="size-5" />

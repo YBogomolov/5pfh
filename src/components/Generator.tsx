@@ -16,14 +16,8 @@ export function Generator({ id, label, onGenerate }: GeneratorProps): React.Reac
 
   return (
     <div className="flex flex-col gap-2">
-      <Button onClick={handleGenerate} className="min-h-11" variant="outline">
-        {label}
-      </Button>
-      <textarea
-        readOnly
-        value={value}
-        className="min-h-24 w-full resize-y rounded-md border border-input bg-background p-3 text-sm text-foreground"
-      />
+      <Button onClick={handleGenerate}>{label}</Button>
+      <p className="w-full bg-background whitespace-pre-wrap text-sm text-foreground text-shadow-primary">{value}</p>
     </div>
   );
 }
