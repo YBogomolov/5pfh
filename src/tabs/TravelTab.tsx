@@ -1,5 +1,6 @@
 import { Generator } from "@/components/Generator";
 import { Section } from "@/components/Section";
+import { generateWorldTrait } from "@/generators/api";
 
 export function TravelTab(): React.ReactElement {
   return (
@@ -9,7 +10,7 @@ export function TravelTab(): React.ReactElement {
       </Section>
 
       <Section title="World Traits">
-        <Generator id="world-trait" label="Generate world trait" onGenerate={() => "Not implemented yet"} />
+        <Generator id="world-trait" label="Generate world trait" onGenerate={generateWorldTrait} />
       </Section>
     </div>
   );

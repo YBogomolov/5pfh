@@ -65,3 +65,5 @@ export const generateJob = (): string => {
     .filter(Boolean)
     .join("\n");
 };
+
+export const generateWorldTrait = (): string => getValue(rollD100(), gen.generators["World Traits Table"]);

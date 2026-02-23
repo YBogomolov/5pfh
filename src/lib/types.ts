@@ -15,7 +15,7 @@ export interface SimpleGeneratorEntry extends Options {
 
 export interface TableGeneratorEntryColumn {
   readonly header: string;
-  readonly result: string;
+  readonly result: string | (() => string);
 }
 
 export interface TableGeneratorEntry extends Options {

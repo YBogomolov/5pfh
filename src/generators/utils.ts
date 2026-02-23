@@ -51,11 +51,11 @@ export const resolveDice = (value: string): string => {
 
 export const formatTableGeneratorEntry = (entry: TableGeneratorEntry, skipDiceResolution?: true): string => {
   return entry.columns
-    .filter((col) => col.result != "-")
+    .filter((col) => col.result !== "-")
     .map((col) =>
       (skipDiceResolution ?? entry.skipDiceResolution)
         ? `${col.header}: ${col.result}`
-        : `${col.header}: ${resolveDice(col.result)}`,
+        : `${col.header}: ${resolveDice(typeof col.result === "string" ? col.result : col.result())}`,
     )
     .join("\n");
 };
@@ -102,7 +102,10 @@ export function resolveRolls(
 
   return formatTableGeneratorEntry({
     ...row,
-    columns: row.columns.map((col) => ({ ...col, result: resolveRollsInternal(col.result) })),
+    columns: row.columns.map((col) => ({
+      ...col,
+      result: resolveRollsInternal(typeof col.result === "string" ? col.result : col.result()),
+    })),
   });
 }
 

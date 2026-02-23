@@ -22,7 +22,7 @@ export default defineConfig([
       globals: globals.browser,
     },
     rules: {
-      "@typescript-eslint/explicit-function-return-type": "error",
+      "@typescript-eslint/explicit-function-return-type": ["error", { allowExpressions: true }],
       "react-refresh/only-export-components": "off",
     },
   },

@@ -1,6 +1,6 @@
 import type { Dice } from "./types";
 
-export const rollDice = (x: Dice): number => {
+export const rollDice = (x: Dice | number): number => {
   if (typeof x === "number") return Math.ceil(Math.random() * x);
 
   const [num, sides] = x.split("D") as [string, string];

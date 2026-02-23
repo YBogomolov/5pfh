@@ -1,4 +1,6 @@
+import { rollD10, rollDice } from "@/lib/random";
 import type { SimpleGenerator, TableGenerator } from "@/lib/types";
+import { getValue } from "./utils";
 
 //! Conventions:
 // - "2Dh6" — roll 2D6, keep highest
@@ -2079,6 +2081,396 @@ const conditionsSubtable: TableGenerator = {
 };
 //#endregion
 
+//#region World trait
+const restrictedSpeciesTable: SimpleGenerator = {
+  title: "Restricted Species",
+  dice: 10,
+  table: [
+    { roll: "1-1", result: "Engineer" },
+    { roll: "2-4", result: "K'Erin" },
+    { roll: "5-5", result: "Soulless" },
+    { roll: "6-6", result: "Precursor" },
+    { roll: "7-9", result: "Feral" },
+    { roll: "10-10", result: "Swift" },
+  ],
+};
+
+const worldTraitsTable: TableGenerator = {
+  title: "World Traits Table",
+  dice: 100,
+  table: [
+    {
+      roll: "1-3",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Trait", result: "Haze" },
+        { header: "Description", result: 'During battle, visibility is reduced to 1D6+8".' },
+      ],
+    },
+    {
+      roll: "4-6",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Trait", result: "Overgrown" },
+        {
+          header: "Description",
+          result:
+            'When setting up the table, you must add 1D6+2 individual plant features or 1D3 areas of vegetation (roughly 3-5" across).',
+        },
+      ],
+    },
+    {
+      roll: "7-8",
+      columns: [
+        { header: "Trait", result: "Warzone" },
+        {
+          header: "Description",
+          result: "When setting up the table, you must add 1D3 ruined buildings or craters to the table.",
+        },
+      ],
+    },
+    {
+      roll: "9-10",
+      columns: [
+        { header: "Trait", result: "Heavily enforced" },
+        {
+          header: "Description",
+          result:
+            "When fighting opponents from the Criminal Elements Encounter Table, the number encountered is reduced by 1. When rolling to see if they become Rivals, only roll a single die as normal.",
+        },
+      ],
+    },
+    {
+      roll: "11-12",
+      columns: [
+        { header: "Trait", result: "Rampant crime" },
+        {
+          header: "Description",
+          result: "When fighting opponents from the Criminal Elements encounter list, add 1 to the number encountered.",
+        },
+      ],
+    },
+    {
+      roll: "13-14",
+      columns: [
+        { header: "Trait", result: "Invasion risk" },
+        { header: "Description", result: "Add +1 to all Invasion rolls." },
+      ],
+    },
+    {
+      roll: "15-16",
+      columns: [
+        { header: "Trait", result: "Imminent invasion" },
+        {
+          header: "Description",
+          result: "Add +2 to all Invasion rolls and if the world is invaded, rolls for war progress are at -1.",
+        },
+      ],
+    },
+    {
+      roll: "17-18",
+      columns: [
+        { header: "Trait", result: "Lacks starship facilities" },
+        {
+          header: "Description",
+          result: "You cannot spend more than 3 credits per campaign turn on starship Repairs.",
+        },
+      ],
+    },
+    {
+      roll: "19-20",
+      columns: [
+        { header: "Trait", result: "Easy recruiting" },
+        { header: "Description", result: "Add +1 to the roll when Recruiting." },
+      ],
+    },
+    {
+      roll: "21-22",
+      columns: [
+        { header: "Trait", result: "Medical science" },
+        { header: "Description", result: "The cost for accelerated medical care is only 3 credits per character." },
+      ],
+    },
+    {
+      roll: "23-24",
+      columns: [
+        { header: "Trait", result: "Technical knowledge" },
+        { header: "Description", result: "Add +1 to all Repair attempts." },
+      ],
+    },
+    {
+      roll: "25-26",
+      columns: [
+        { header: "Trait", result: "Opportunities" },
+        { header: "Description", result: "Add +1 to the roll when searching for Patrons." },
+      ],
+    },
+    {
+      roll: "27-29",
+      columns: [
+        { header: "Trait", result: "Booming economy" },
+        {
+          header: "Description",
+          result:
+            "When rolling for post-battle credit rewards, any 1 on the dice is rerolled until it shows a score other than 1.",
+        },
+      ],
+    },
+    {
+      roll: "30-32",
+      columns: [
+        { header: "Trait", result: "Busy markets" },
+        {
+          header: "Description",
+          result: "Each campaign turn, you may spend 2 credits once to roll on the Trade Table.",
+        },
+      ],
+    },
+    {
+      roll: "33-34",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Trait", result: "Bureaucratic mess" },
+        {
+          header: "Description",
+          result:
+            "When attempting to leave, you must roll 2D6. On a 2-4, you are delayed and cannot leave this campaign turn without a bribe equal to the roll in credits. You may try again next campaign turn.",
+        },
+      ],
+    },
+    {
+      roll: "35-36",
+      columns: [
+        { header: "Trait", result: "Restricted education" },
+        { header: "Description", result: "You must roll 6+ to be approved for Advanced Training on this world." },
+      ],
+    },
+    {
+      roll: "37-38",
+      columns: [
+        { header: "Trait", result: "Expensive education" },
+        { header: "Description", result: "The fee to enroll in Advanced Training is 3 credits." },
+      ],
+    },
+    {
+      roll: "39-41",
+      columns: [
+        { header: "Trait", result: "Travel restricted" },
+        {
+          header: "Description",
+          result: "No more than one crew member may take the Explore option each campaign turn.",
+        },
+      ],
+    },
+    {
+      roll: "42-43",
+      columns: [
+        { header: "Trait", result: "Unity safe sector" },
+        { header: "Description", result: "The world cannot be Invaded." },
+      ],
+    },
+    {
+      roll: "44-46",
+      columns: [
+        { header: "Trait", result: "Gloom" },
+        { header: "Description", result: 'In battle, maximum visibility is restricted to 1D6+6".' },
+      ],
+    },
+    {
+      roll: "47-48",
+      columns: [
+        { header: "Trait", result: "Bot manufacturing" },
+        { header: "Description", result: "All Bot upgrades are 1 credit cheaper." },
+      ],
+    },
+    {
+      roll: "49-51",
+      columns: [
+        { header: "Trait", result: "Fuel refinery" },
+        { header: "Description", result: "Traveling from this world costs only 3 credits." },
+      ],
+    },
+    {
+      roll: "52-53",
+      columns: [
+        { header: "Trait", result: "Alien species restricted" },
+        {
+          header: "Description",
+          result: () => {
+            const species = getValue(rollD10(), restrictedSpeciesTable);
+
+            return `${species} cannot be hired here (count as baseline Humans instead), and cannot undertake any crew jobs. They may participate in combat normally.`;
+          },
+        },
+      ],
+    },
+    {
+      roll: "54-55",
+      columns: [
+        { header: "Trait", result: "Weapon licensing" },
+        {
+          header: "Description",
+          result: "Any weapon obtained through the Trade Table or purchased outright costs +1 credit.",
+        },
+      ],
+    },
+    {
+      roll: "56-57",
+      columns: [
+        { header: "Trait", result: "Import restrictions" },
+        { header: "Description", result: "You cannot sell any items on this world." },
+      ],
+    },
+    {
+      roll: "58-59",
+      columns: [
+        { header: "Trait", result: "Military outpost" },
+        { header: "Description", result: "Add +2 to Invasion rolls. Add +2 when checking for war progress." },
+      ],
+    },
+    {
+      roll: "60-62",
+      columns: [
+        { header: "Trait", result: "Dangerous" },
+        {
+          header: "Description",
+          result: "When rolling on the Roving Threats Encounter Table, increase the number of opponents by +1.",
+        },
+      ],
+    },
+    {
+      roll: "63-64",
+      columns: [
+        { header: "Trait", result: "Shipyards" },
+        { header: "Description", result: "The cost of all Ship Components is reduced by 2 credits." },
+      ],
+    },
+    {
+      roll: "65-67",
+      columns: [
+        { header: "Trait", result: "Barren" },
+        { header: "Description", result: "No plant features can be used on the battlefield." },
+      ],
+    },
+    {
+      roll: "68-69",
+      columns: [
+        { header: "Trait", result: "Vendetta system" },
+        { header: "Description", result: "Opponents become your Rivals on a roll of 1 or 2." },
+      ],
+    },
+    {
+      roll: "70-72",
+      columns: [
+        { header: "Trait", result: "Free trade zone" },
+        {
+          header: "Description",
+          result:
+            "One crew member per campaign turn can roll twice when using the Trade Table, and choose either result.",
+        },
+      ],
+    },
+    {
+      roll: "73-74",
+      columns: [
+        { header: "Trait", result: "Corporate state" },
+        {
+          header: "Description",
+          result:
+            "+2 when rolling to find a Patron. Patrons are always Corporations. Failing a mission means being blacklisted.",
+        },
+      ],
+    },
+    {
+      roll: "75-76",
+      columns: [
+        { header: "Trait", result: "Adventurous population" },
+        {
+          header: "Description",
+          result: "When successfully Recruiting, you may roll up one additional character and then choose who to hire.",
+        },
+      ],
+    },
+    {
+      roll: "77-79",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Trait", result: "Frozen" },
+        {
+          header: "Description",
+          result:
+            'Any character making a Dash may opt to slide 1D6" in a straight line. If they collide, they and the target are knocked 1" and Stunned.',
+        },
+      ],
+    },
+    {
+      roll: "80-81",
+      columns: [
+        { header: "Trait", result: "Flat" },
+        { header: "Description", result: "Do not place any hills or raised ground on the battlefield." },
+      ],
+    },
+    {
+      roll: "82-84",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Trait", result: "Fuel shortage" },
+        {
+          header: "Description",
+          result: "The cost to travel from this world is raised by 1D3 credits. You may roll each campaign turn.",
+        },
+      ],
+    },
+    {
+      roll: "85-86",
+      columns: [
+        { header: "Trait", result: "Reflective dust" },
+        { header: "Description", result: 'All Laser, Beam, or Blast weapons are -1 to Hit at ranges exceeding 9".' },
+      ],
+    },
+    {
+      roll: "87-89",
+      columns: [
+        { header: "Trait", result: "High cost" },
+        { header: "Description", result: "Your crew size counts as being 2 higher for the purpose of Upkeep costs." },
+      ],
+    },
+    {
+      roll: "90-91",
+      columns: [
+        { header: "Trait", result: "Interdiction" },
+        {
+          header: "Description",
+          result: () => `You are only approved to stay for ${rollDice(3)} campaign turns. To extend, roll 2D6 for 8+.`,
+        },
+      ],
+    },
+    {
+      roll: "92-93",
+      columns: [
+        { header: "Trait", result: "Null zone" },
+        { header: "Description", result: "No teleportation device of any type works." },
+      ],
+    },
+    {
+      roll: "94-96",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Trait", result: "Crystals" },
+        { header: "Description", result: "Place 2D6 crystals on the battlefield. If you don't have any, use rocks." },
+      ],
+    },
+    {
+      roll: "97-100",
+      columns: [
+        { header: "Trait", result: "Fog" },
+        { header: "Description", result: 'All shots beyond 8" are -1 to Hit.' },
+      ],
+    },
+  ],
+};
+//#endregion
+
 //#region ALL
 export const generators = {
   "Crew Type": crewType,
@@ -2127,5 +2519,7 @@ export const generators = {
   "Benefits Subtable": benefitsSubtable,
   "Hazards Subtable": hazardsSubtable,
   "Condtions Subtable": conditionsSubtable,
+
+  "World Traits Table": worldTraitsTable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion
