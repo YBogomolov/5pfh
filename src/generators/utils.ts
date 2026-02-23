@@ -49,42 +49,44 @@ export const resolveDice = (value: string): string => {
   return localValue;
 };
 
-export const formatTableGeneratorEntry = (entry: TableGeneratorEntry): string => {
+export const formatTableGeneratorEntry = (entry: TableGeneratorEntry, skipDiceResolution?: true): string => {
   return entry.columns
     .filter((col) => col.result != "-")
-    .map((col) => resolveDice(col.result))
+    .map((col) => ((skipDiceResolution ?? entry.skipDiceResolution) ? col.result : resolveDice(col.result)))
     .join("\n");
 };
+
+const TIMES: Record<string, number> = { once: 1, twice: 2 };
 
 export const getValue = (roll: number, generator: SimpleGenerator | TableGenerator): string => {
   for (const row of generator.table) {
     const [low, high] = row.roll.split("-") as [string, string];
 
     if (+low <= roll && roll <= +high) {
-      if (!("result" in row)) return formatTableGeneratorEntry(row);
+      if (!("result" in row)) return formatTableGeneratorEntry(row, generator.skipDiceResolution);
 
       const { result } = row;
 
-      // Special case: "Roll twice on X":
-      if (result.includes("Roll twice on ")) {
-        const regex = /Roll twice on ([^.]+)/;
+      // Special case: "Roll once/twice on X":
+      const regex = /Roll (once|twice) on the ([^.]+)/;
+      if (regex.test(result)) {
         const match = result.match(regex);
-        const genName = match?.[1];
-        if (!genName || !(genName in gen.generators)) return resolveDice(result);
+        const genName = match?.[2];
+        if (!genName || !(genName in gen.generators)) return row.skipDiceResolution ? result : resolveDice(result);
 
-        const firstRoll = rollDice(generator.dice);
-        const secondRoll = rollDice(generator.dice);
+        const times = TIMES[match[1]] ?? 0;
+        const replacement = Array.from({ length: times }, () => {
+          const roll = rollDice(generator.dice);
+          return getValue(roll, gen.generators[genName as keyof typeof gen.generators]);
+        }).join(", ");
 
-        const firstResult = getValue(firstRoll, gen.generators[genName as keyof typeof gen.generators]);
-        const secondResult = getValue(secondRoll, gen.generators[genName as keyof typeof gen.generators]);
+        const finalResult = result.replace(regex, replacement);
 
-        const replacement = `${firstResult}, ${secondResult}`;
-
-        return resolveDice(result.replace(regex, replacement));
+        return row.skipDiceResolution ? finalResult : resolveDice(finalResult);
       }
 
       const maybeNextGen = result in gen.generators ? gen.generators[result as keyof typeof gen.generators] : null;
-      if (!maybeNextGen) return resolveDice(result);
+      if (!maybeNextGen) return row.skipDiceResolution ? result : resolveDice(result);
 
       const newRoll = rollDice(generator.dice);
       return getValue(newRoll, maybeNextGen);

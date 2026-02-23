@@ -665,7 +665,7 @@ const classTable: TableGenerator = {
 
 //#region Crew equipment
 const lowTechWeapon: SimpleGenerator = {
-  title: "Low Tech Weapon",
+  title: "Low Tech Weapon Table",
   dice: 100,
   table: [
     { roll: "1-15", result: "Handgun" },
@@ -680,7 +680,7 @@ const lowTechWeapon: SimpleGenerator = {
 };
 
 const miliaryWeapon: SimpleGenerator = {
-  title: "Military Weapon",
+  title: "Military Weapon Table",
   dice: 100,
   table: [
     { roll: "1-25", result: "Military Rifle" },
@@ -695,7 +695,7 @@ const miliaryWeapon: SimpleGenerator = {
 };
 
 const highTechWeapon: SimpleGenerator = {
-  title: "High Tech Weapon",
+  title: "High Tech Weapon Table",
   dice: 100,
   table: [
     { roll: "1-5", result: "Dueling Pistol" },
@@ -918,8 +918,8 @@ const lootTable: SimpleGenerator = {
   dice: 100,
   table: [
     { roll: "1-25", result: "Weapon Category Subtable" },
-    { roll: "26-35", result: "Roll twice on Weapon Category Subtable. Both items require Repair" },
-    { roll: "36-45", result: "Roll twice on Gear Subtable. Both items require Repair" },
+    { roll: "26-35", result: "Roll twice on the Weapon Category Subtable. Both items require Repair" },
+    { roll: "36-45", result: "Roll twice on the Gear Subtable. Both items require Repair" },
     { roll: "46-65", result: "Gear Subtable" },
     { roll: "66-80", result: "Odds and Ends Subtable" },
     { roll: "81-100", result: "Rewards Subtable" },
@@ -1279,6 +1279,584 @@ const galacticWarTable: TableGenerator = {
 };
 //#endregion
 
+//#region Trade
+const tradeTable: TableGenerator = {
+  title: "Trade Table",
+  dice: 100,
+  skipDiceResolution: true,
+  table: [
+    {
+      roll: "1-3",
+      columns: [
+        { header: "Trade Result", result: "A personal weapon" },
+        { header: "Effects", result: "Low Tech Weapon Table" },
+      ],
+    },
+    {
+      roll: "4-6",
+      columns: [
+        { header: "Trade Result", result: "Sell some cargo" },
+        { header: "Effects", result: "Earn 2 credits." },
+      ],
+    },
+    {
+      roll: "7-9",
+      columns: [
+        { header: "Trade Result", result: "Find something useful" },
+        { header: "Effects", result: "Gear Table" },
+      ],
+    },
+    {
+      roll: "10-11",
+      columns: [
+        { header: "Trade Result", result: "Quality food and booze" },
+        { header: "Effects", result: "Recruit a new character to your crew. Single-use." },
+      ],
+    },
+    {
+      roll: "12-14",
+      columns: [
+        { header: "Trade Result", result: "Instruction book" },
+        { header: "Effects", result: "A crew member of choice can read it and earn +1 XP. Single-use." },
+      ],
+    },
+    {
+      roll: "15-18",
+      columns: [
+        { header: "Trade Result", result: "Bits of scrap" },
+        {
+          header: "Effects",
+          result: "You sell it on to an interested party, earning 1 credit of profit in the process.",
+        },
+      ],
+    },
+    {
+      roll: "19-22",
+      columns: [
+        { header: "Trade Result", result: "Medical pack" },
+        { header: "Effects", result: "Receive your choice of a Stim-pack or Med-patch." },
+      ],
+    },
+    {
+      roll: "23-24",
+      columns: [
+        { header: "Trade Result", result: "Worthless trinket" },
+        { header: "Effects", result: "Worthless? Roll 1D6. On a 6, earn +1 story point." },
+      ],
+    },
+    {
+      roll: "25-26",
+      columns: [
+        { header: "Trade Result", result: "Local maps" },
+        {
+          header: "Effects",
+          result: "If you receive a Quest on this or the following world, you may immediately add 1 Rumor. Single-use.",
+        },
+      ],
+    },
+    {
+      roll: "27-28",
+      columns: [
+        { header: "Trade Result", result: "Luxury trinket" },
+        {
+          header: "Effects",
+          result:
+            "If Recruiting, you may use it as a gift to receive a +2 bonus to the roll. Alternatively, you can sell it: Roll twice on the Trade Table and select the result you prefer. If a Swift character finds this, they will keep it for themselves, earning +2 XP. Single-use.",
+        },
+      ],
+    },
+    {
+      roll: "29-30",
+      columns: [
+        { header: "Trade Result", result: "Basic supplies" },
+        { header: "Effects", result: "Skip Upkeep costs for one campaign turn. Single-use." },
+      ],
+    },
+    {
+      roll: "31-34",
+      columns: [
+        { header: "Trade Result", result: "Contraband" },
+        {
+          header: "Effects",
+          result:
+            "You can turn this down, but if you accept it, you earn 1D6 credits from selling it on. If you roll a 4-6, you also receive a Rival.",
+        },
+      ],
+    },
+    {
+      roll: "35-37",
+      columns: [
+        { header: "Trade Result", result: "Gun Upgrade Kit" },
+        { header: "Effects", result: "Receive your choice of a Laser Sight, Bipod or Beam Light." },
+      ],
+    },
+    {
+      roll: "38-39",
+      columns: [
+        { header: "Trade Result", result: "Useless trinket" },
+        { header: "Effects", result: "Useless? Roll 1D6. On a 6, earn +1 story point." },
+      ],
+    },
+    {
+      roll: "40-44",
+      columns: [
+        { header: "Trade Result", result: "Trade goods" },
+        {
+          header: "Effects",
+          result:
+            "Every time you arrive on a new planet, you may roll 1D6 to see how many Credits the goods will sell for here. You can wait as long as you like, but if you roll a 1, they have perished or become damaged, and are now worthless.",
+        },
+      ],
+    },
+    {
+      roll: "45-48",
+      columns: [
+        { header: "Trade Result", result: "Something interesting" },
+        { header: "Effects", result: "Loot Table" },
+      ],
+    },
+    {
+      roll: "49-51",
+      columns: [
+        { header: "Trade Result", result: "Fuel" },
+        {
+          header: "Effects",
+          result:
+            "Roll 1D6. You have secured that many credits worth of fuel, which can be used to offset travel costs.",
+        },
+      ],
+    },
+    {
+      roll: "52-53",
+      columns: [
+        { header: "Trade Result", result: "Spare parts" },
+        {
+          header: "Effects",
+          result:
+            "Add +1 when making a Repair attempt. If the roll is a natural 1, the Spare Parts are used up and must be erased from your roster.",
+        },
+      ],
+    },
+    {
+      roll: "54-55",
+      columns: [
+        { header: "Trade Result", result: "Tourist garbage" },
+        {
+          header: "Effects",
+          result: "Not actually worth anything, but roll 1D6. On a 5-6, you can add 1 story point.",
+        },
+      ],
+    },
+    {
+      roll: "56-56",
+      columns: [
+        { header: "Trade Result", result: "Don't usually see these for sale" },
+        {
+          header: "Effects",
+          result:
+            "You may pay 3 credits. If you do, you can roll on the Loot Table. The item must be used by the crew member who went trading.",
+        },
+      ],
+    },
+    {
+      roll: "57-59",
+      columns: [
+        { header: "Trade Result", result: "Ordnance" },
+        { header: "Effects", result: "You receive 3 grenades (Frakk or Dazzle in any combination you like)" },
+      ],
+    },
+    {
+      roll: "60-62",
+      columns: [
+        { header: "Trade Result", result: "Basic firearms" },
+        { header: "Effects", result: "Your choice of a Handgun, Colony Rifle, or Shotgun." },
+      ],
+    },
+    {
+      roll: "63-63",
+      columns: [
+        { header: "Trade Result", result: "Odd device" },
+        {
+          header: "Effects",
+          result:
+            "If you want to buy this, pay 1 credit, then roll 1D6. On a 6, you can roll on the Loot Table. On any other score, it's complete garbage.",
+        },
+      ],
+    },
+    {
+      roll: "64-65",
+      columns: [
+        { header: "Trade Result", result: "Military fuel cell" },
+        { header: "Effects", result: "Zero travel costs when jumping to a new planet. Single-use." },
+      ],
+    },
+    {
+      roll: "66-69",
+      columns: [
+        { header: "Trade Result", result: "Hot tip" },
+        { header: "Effects", result: "Gain 1 Quest Rumor." },
+      ],
+    },
+    {
+      roll: "70-71",
+      columns: [
+        { header: "Trade Result", result: "Insider information" },
+        {
+          header: "Effects",
+          result: "Automatically obtain a Patron next campaign turn, if you look for one. Single-use.",
+        },
+      ],
+    },
+    {
+      roll: "72-75",
+      columns: [
+        { header: "Trade Result", result: "Army surplus" },
+        { header: "Effects", result: "Your choice of an Auto Rifle, Blast Pistol or Glare Sword." },
+      ],
+    },
+    {
+      roll: "76-78",
+      columns: [
+        { header: "Trade Result", result: "A chance to unload some stuff" },
+        {
+          header: "Effects",
+          result: "A revolutionary will buy any weapons for 2 credits each, provided they are not damaged.",
+        },
+      ],
+    },
+    {
+      roll: "79-81",
+      columns: [
+        { header: "Trade Result", result: "A lot of blinking lights" },
+        { header: "Effects", result: "Gear Table" },
+      ],
+    },
+    {
+      roll: "82-86",
+      columns: [
+        { header: "Trade Result", result: "Gently used" },
+        {
+          header: "Effects",
+          result: "Roll once on the Gear Table. The item is damaged and needs Repair.",
+        },
+      ],
+    },
+    {
+      roll: "87-91",
+      columns: [
+        { header: "Trade Result", result: "Pre-owned" },
+        { header: "Effects", result: "Roll once on the Loot Table. The item is damaged and needs Repair." },
+      ],
+    },
+    {
+      roll: "92-95",
+      columns: [
+        { header: "Trade Result", result: "Medical reserves" },
+        { header: "Effects", result: "Obtain 2 Stim-packs and 2 Med-patches." },
+      ],
+    },
+    {
+      roll: "96-100",
+      columns: [
+        { header: "Trade Result", result: "Starship repair parts" },
+        {
+          header: "Effects",
+          result: "Count as 1D6 credits for the purpose of repairing Hull Point damage. Single-use.",
+        },
+      ],
+    },
+  ],
+};
+//#endregion
+
+//#region Exploration
+const explorationTable: TableGenerator = {
+  title: "Exploration Table",
+  dice: 100,
+  table: [
+    {
+      roll: "1-3",
+      columns: [
+        { header: "Exploration Result", result: "I know a good deal when I see one" },
+        { header: "Effects", result: "Trade Table" },
+      ],
+    },
+    {
+      roll: "4-6",
+      columns: [
+        { header: "Exploration Result", result: "Meet a Patron" },
+        { header: "Effects", result: "You are offered a Patron job." },
+      ],
+    },
+    {
+      roll: "7-8",
+      columns: [
+        { header: "Exploration Result", result: "Must've been something I ate" },
+        {
+          header: "Effects",
+          result:
+            "The character eats bad food, and must spend 1 campaign turn in Sick Bay. Soulless and K’Erin ignore this event.",
+        },
+      ],
+    },
+    {
+      roll: "9-11",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Exploration Result", result: "Meet someone interesting" },
+        {
+          header: "Effects",
+          result: "Gain a Quest Rumor. A Precursor character may roll 1D6, and on a 5+ receives a second Rumor.",
+        },
+      ],
+    },
+    {
+      roll: "12-15",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Exploration Result", result: "Had a nice chat" },
+        { header: "Effects", result: "Roll 1D6+Savvy. On a 5+ gain +1 story point." },
+      ],
+    },
+    {
+      roll: "16-18",
+      columns: [
+        { header: "Exploration Result", result: "See the sights, enjoy the view" },
+        { header: "Effects", result: "No effects." },
+      ],
+    },
+    {
+      roll: "19-21",
+      columns: [
+        { header: "Exploration Result", result: "Make a new friend" },
+        {
+          header: "Effects",
+          result:
+            "Roll up a new character and add them to the crew. If your character is Feral, the new character is also Feral.",
+        },
+      ],
+    },
+    {
+      roll: "22-24",
+      columns: [
+        { header: "Exploration Result", result: "Time to relax" },
+        { header: "Effects", result: "No effects." },
+      ],
+    },
+    {
+      roll: "25-28",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Exploration Result", result: "Possible bargain" },
+        {
+          header: "Effects",
+          result:
+            "Give up a weapon of choice, then roll 1D6. On a 6, get a roll on the Loot Table. Otherwise get 1 credit.",
+        },
+      ],
+    },
+    {
+      roll: "29-31",
+      columns: [
+        { header: "Exploration Result", result: "Alien merchant" },
+        { header: "Effects", result: "Give him any item, then roll on the Loot Table." },
+      ],
+    },
+    {
+      roll: "32-34",
+      columns: [
+        { header: "Exploration Result", result: "Got yourself noticed" },
+        {
+          header: "Effects",
+          result: "If you have Rivals, select one at random. You will have to fight them this campaign turn.",
+        },
+      ],
+    },
+    {
+      roll: "35-37",
+      columns: [
+        { header: "Exploration Result", result: "You hear a tip" },
+        { header: "Effects", result: "You may opt to automatically track down a Rival to fight this campaign turn." },
+      ],
+    },
+    {
+      roll: "38-40",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Exploration Result", result: "Completely lost" },
+        {
+          header: "Effects",
+          result:
+            "Roll 1D6+Savvy. On a 4+ the character finds their way back in time, otherwise they will be unable to participate in a battle this campaign turn. Either way, roll again on this table to see what they find while wandering the streets.",
+        },
+      ],
+    },
+    {
+      roll: "41-44",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Exploration Result", result: "Someone wants a package delivered" },
+        {
+          header: "Effects",
+          result:
+            "When you travel to a new world, if this crew member is still in the crew, earn 3 credits and roll 1D6. On 1-2, you've acquired a Rival and receive +1 story point.",
+        },
+      ],
+    },
+    {
+      roll: "45-47",
+      skipDiceResolution: true,
+      columns: [
+        { header: "Exploration Result", result: "A tech fanatic offers to help out" },
+        {
+          header: "Effects",
+          result:
+            "Pick a damaged item of equipment and roll 1D6. On 5-6 you have it fixed for free. An Engineer instead spends the afternoon talking shop, earning +2 XP.",
+        },
+      ],
+    },
+    {
+      roll: "48-50",
+      columns: [
+        { header: "Exploration Result", result: "Got a few drinks" },
+        { header: "Effects", result: "No effects." },
+      ],
+    },
+    {
+      roll: "51-53",
+      columns: [
+        { header: "Exploration Result", result: "I don’t have a gambling problem!" },
+        {
+          header: "Effects",
+          result: "Discard one item from the character’s equipment or crew Stash. Soulless ignore this event.",
+        },
+      ],
+    },
+    {
+      roll: "54-57",
+      columns: [
+        { header: "Exploration Result", result: "Overheard some talk" },
+        { header: "Effects", result: "Gain a Rumor." },
+      ],
+    },
+    {
+      roll: "58-60",
+      columns: [
+        { header: "Exploration Result", result: "Pick a fight" },
+        {
+          header: "Effects",
+          result:
+            "Add a Rival to your list. If a K’Erin gets this event, add the Rival as normal, but the first time you meet them in battle, they have -1 enemy, as you already knocked one out in the initial brawl.",
+        },
+      ],
+    },
+    {
+      roll: "61-64",
+      columns: [
+        { header: "Exploration Result", result: "Found a trainer" },
+        { header: "Effects", result: "Character earns +2 XP." },
+      ],
+    },
+    {
+      roll: "65-68",
+      columns: [
+        { header: "Exploration Result", result: "Information broker" },
+        { header: "Effects", result: "Buy up to 3 Rumors for 2 credits each." },
+      ],
+    },
+    {
+      roll: "69-71",
+      columns: [
+        { header: "Exploration Result", result: "Arms dealer" },
+        {
+          header: "Effects",
+          result: "Purchase any number of rolls on the Military Weapons Table for 3 credits each.",
+        },
+      ],
+    },
+    {
+      roll: "72-75",
+      columns: [
+        { header: "Exploration Result", result: "Promising lead" },
+        { header: "Effects", result: "Earn +3 credits if you do an Opportunity mission this campaign turn." },
+      ],
+    },
+    {
+      roll: "76-79",
+      columns: [
+        { header: "Exploration Result", result: "Just needs a little love" },
+        {
+          header: "Effects",
+          result:
+            "You found Roll on the Gadget Table, but the item is damaged and needs to be repaired before it can be used. If the character is an Engineer, the item works right away.",
+        },
+      ],
+    },
+    {
+      roll: "80-82",
+      columns: [
+        { header: "Exploration Result", result: "Get in a bad fight" },
+        {
+          header: "Effects",
+          result:
+            "Character must spend 1D3 campaign turns in Sick Bay, and loses one item of carried equipment (player choice).",
+        },
+      ],
+    },
+    {
+      roll: "83-86",
+      columns: [
+        { header: "Exploration Result", result: "Offered a small job" },
+        {
+          header: "Effects",
+          result:
+            "When fighting this campaign turn, select a random enemy figure. If your crew kills them, earn 2 credits. No reward if they run away.",
+        },
+      ],
+    },
+    {
+      roll: "87-90",
+      columns: [
+        { header: "Exploration Result", result: "Offered a reward" },
+        {
+          header: "Effects",
+          result:
+            "When fighting this campaign turn, select a random terrain feature. If a crew member moves into contact and spends a Combat Action, you can retrieve a package and earn 2 credits.",
+        },
+      ],
+    },
+    {
+      roll: "91-94",
+      columns: [
+        { header: "Exploration Result", result: "You make a useful contact" },
+        {
+          header: "Effects",
+          result: "Next campaign turn, add +1 to your choice of a roll to Recruit, Find a Patron, or Track a Rival.",
+        },
+      ],
+    },
+    {
+      roll: "95-96",
+      columns: [
+        { header: "Exploration Result", result: "Who left this lying around?" },
+        { header: "Effects", result: "Add your choice of a Handgun, Blade, Colony Rifle, or Shotgun." },
+      ],
+    },
+    {
+      roll: "97-100",
+      columns: [
+        { header: "Exploration Result", result: "This place is rather nice, really." },
+        {
+          header: "Effects",
+          result:
+            "When you are ready to leave this world, unless it is being Invaded, you must pay 1 story point or this crew member will decide to stay behind. If they do, you can keep their equipment, though.",
+        },
+      ],
+    },
+  ],
+};
+//#endregion
+
 //#region ALL
 export const generators = {
   "Crew Type": crewType,
@@ -1288,9 +1866,9 @@ export const generators = {
   "Motivation Table": motivationTable,
   "Class Table": classTable,
 
-  "Low Tech Weapon": lowTechWeapon,
-  "Military Weapon": miliaryWeapon,
-  "High Tech Weapon": highTechWeapon,
+  "Low Tech Weapon Table": lowTechWeapon,
+  "Military Weapon Table": miliaryWeapon,
+  "High Tech Weapon Table": highTechWeapon,
   "Gear Table": gearTable,
   "Gadget Table": gadgetTable,
 
@@ -1316,5 +1894,9 @@ export const generators = {
   "Rewards Subtable": rewardsSubtable,
 
   "Galactic War Progress": galacticWarTable,
+
+  "Trade Table": tradeTable,
+
+  "Exploration Table": explorationTable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion

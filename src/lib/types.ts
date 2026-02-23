@@ -4,7 +4,11 @@ export type Roll = `${number}-${number}`;
 
 export type Dice = 6 | 10 | "2D6" | 100;
 
-export interface SimpleGeneratorEntry {
+interface Options {
+  readonly skipDiceResolution?: true;
+}
+
+export interface SimpleGeneratorEntry extends Options {
   readonly roll: Roll;
   readonly result: string;
 }
@@ -14,12 +18,12 @@ export interface TableGeneratorEntryColumn {
   readonly result: string;
 }
 
-export interface TableGeneratorEntry {
+export interface TableGeneratorEntry extends Options {
   readonly roll: Roll;
   readonly columns: NonEmptyArray<TableGeneratorEntryColumn>;
 }
 
-export interface Generator<Entry> {
+export interface Generator<Entry> extends Options {
   readonly title: string;
   readonly dice: Dice;
   readonly table: NonEmptyArray<Entry>;
