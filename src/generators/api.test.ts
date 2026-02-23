@@ -37,7 +37,14 @@ describe("Background", () => {
       .mockReturnValueOnce(0.54) // table roll
       .mockReturnValueOnce(0.5); // 1D6 resolution
 
-    expect(generateCrewBackground()).toBe(["Tech Guild", "+1 Savvy", "+3 credits", "+1 High-tech Weapon"].join("\n"));
+    expect(generateCrewBackground()).toBe(
+      [
+        "Background: Tech Guild",
+        "Effect: +1 Savvy",
+        "Resources: +3 credits",
+        "Starting Rolls: +1 High-tech Weapon",
+      ].join("\n"),
+    );
   });
 });
 

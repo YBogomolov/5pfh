@@ -1,7 +1,6 @@
-import { rollD100 } from "@/lib/random";
-
-import * as gen from "./data";
 import { getValue } from "./utils";
+import { rollD100, rollDice } from "@/lib/random";
+import * as gen from "./data";
 
 export const generateCrewType = (): string => getValue(rollD100(), gen.generators["Crew Type"]);
 
@@ -13,17 +12,13 @@ export const generateCrewClass = (): string => getValue(rollD100(), gen.generato
 
 export const generateCrewEquipment = (): string =>
   [
-    // 3 rolls on military weapon table
     getValue(rollD100(), gen.generators["Military Weapon Table"]),
     getValue(rollD100(), gen.generators["Military Weapon Table"]),
     getValue(rollD100(), gen.generators["Military Weapon Table"]),
-    // 3 rolls on low tech weapon table
     getValue(rollD100(), gen.generators["Low Tech Weapon Table"]),
     getValue(rollD100(), gen.generators["Low Tech Weapon Table"]),
     getValue(rollD100(), gen.generators["Low Tech Weapon Table"]),
-    // 1 roll on gear table
     getValue(rollD100(), gen.generators["Gear Table"]),
-    // 1 roll on gadget table
     getValue(rollD100(), gen.generators["Gadget Table"]),
   ].join(", ");
 
@@ -36,3 +31,6 @@ export const generateLoot = (): string => getValue(rollD100(), gen.generators["L
 export const generateTradeResult = (): string => getValue(rollD100(), gen.generators["Trade Table"]);
 
 export const generateExplorationResult = (): string => getValue(rollD100(), gen.generators["Exploration Table"]);
+
+export const generateGalacticWarProgress = (): string =>
+  getValue(rollDice("2D6"), gen.generators["Galactic War Progress"]);

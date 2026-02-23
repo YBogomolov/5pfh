@@ -1091,10 +1091,10 @@ const utilityItemsSubtable: SimpleGenerator = {
 };
 
 const oddsAndEndsTable: SimpleGenerator = {
-  title: "Odds and Ends Table",
+  title: "Odds and Ends Subtable",
   dice: 100,
   table: [
-    { roll: "1-55", result: "Consumables Subtable" },
+    { roll: "1-55", result: "Roll once on the Consumables Subtable. 2 uses" },
     { roll: "56-70", result: "Implants Subtable" },
     { roll: "71-100", result: "Ship Items Subtable" },
   ],
@@ -1283,7 +1283,6 @@ const galacticWarTable: TableGenerator = {
 const tradeTable: TableGenerator = {
   title: "Trade Table",
   dice: 100,
-  skipDiceResolution: true,
   table: [
     {
       roll: "1-3",
@@ -1339,6 +1338,7 @@ const tradeTable: TableGenerator = {
     },
     {
       roll: "23-24",
+      skipDiceResolution: true,
       columns: [
         { header: "Trade Result", result: "Worthless trinket" },
         { header: "Effects", result: "Worthless? Roll 1D6. On a 6, earn +1 story point." },
@@ -1392,6 +1392,7 @@ const tradeTable: TableGenerator = {
     },
     {
       roll: "38-39",
+      skipDiceResolution: true,
       columns: [
         { header: "Trade Result", result: "Useless trinket" },
         { header: "Effects", result: "Useless? Roll 1D6. On a 6, earn +1 story point." },
@@ -1399,6 +1400,7 @@ const tradeTable: TableGenerator = {
     },
     {
       roll: "40-44",
+      skipDiceResolution: true,
       columns: [
         { header: "Trade Result", result: "Trade goods" },
         {
@@ -1421,8 +1423,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "Fuel" },
         {
           header: "Effects",
-          result:
-            "Roll 1D6. You have secured that many credits worth of fuel, which can be used to offset travel costs.",
+          result: "You have secured 1D6 credits worth of fuel, which can be used to offset travel costs.",
         },
       ],
     },
@@ -1439,6 +1440,7 @@ const tradeTable: TableGenerator = {
     },
     {
       roll: "54-55",
+      skipDiceResolution: true,
       columns: [
         { header: "Trade Result", result: "Tourist garbage" },
         {
@@ -1474,6 +1476,7 @@ const tradeTable: TableGenerator = {
     },
     {
       roll: "63-63",
+      skipDiceResolution: true,
       columns: [
         { header: "Trade Result", result: "Odd device" },
         {
@@ -1886,7 +1889,7 @@ export const generators = {
   "Gun Mods Subtable": gunModsSubtable,
   "Gun Sights Subtable": gunSightsSubtable,
   "Protective Items Subtable": protectiveItemsSubtable,
-  "Odds and Ends Table": oddsAndEndsTable,
+  "Odds and Ends Subtable": oddsAndEndsTable,
   "Consumables Subtable": consumablesSubtable,
   "Implants Subtable": implantsSubtable,
   "Utility Items Subtable": utilityItemsSubtable,

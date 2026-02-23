@@ -1,30 +1,29 @@
-import React, { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useState } from "react";
+
+import { GeneratorStoreProvider } from "@/store/GeneratorStore";
+import { TabNavigation, type TabId } from "@/components/TabNavigation";
+import { CrewTab } from "@/tabs/CrewTab";
+import { TravelTab } from "@/tabs/TravelTab";
+import { WorldTab } from "@/tabs/WorldTab";
+import { LootTab } from "@/tabs/LootTab";
+
+const tabContent: Record<TabId, React.ReactElement> = {
+  crew: <CrewTab />,
+  travel: <TravelTab />,
+  world: <WorldTab />,
+  loot: <LootTab />,
+};
 
 function App(): React.ReactElement {
-  const [count, setCount] = useState(0);
+  const [activeTab, setActiveTab] = useState<TabId>("crew");
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <GeneratorStoreProvider>
+      <div className="min-h-screen bg-background">
+        <main className="mx-auto max-w-3xl">{tabContent[activeTab]}</main>
+        <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </GeneratorStoreProvider>
   );
 }
 
