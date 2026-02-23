@@ -7,16 +7,12 @@
   --color-accent: rgb(202, 65, 34);
   --color-accent-foreground: rgb(255, 255, 255);
   --color-secondary: --alpha(color-mix(in oklab, var(--color-primary), var(--color-white) 50%) / 60%);
-  --color-secondary-foreground: color-mix(in oklab,
-      var(--color-primary),
-      var(--color-white) 70%);
+  --color-secondary-foreground: color-mix(in oklab, var(--color-primary), var(--color-white) 70%);
   --color-destructive: var(--color-rose-500);
   --color-destructive-foreground: rgb(255, 255, 255);
   --color-success: var(--color-teal-500);
   --color-success-foreground: rgb(255, 255, 255);
-  --color-background: color-mix(in oklab,
-      var(--color-primary),
-      var(--color-black) 80%);
+  --color-background: color-mix(in oklab, var(--color-primary), var(--color-black) 80%);
   --color-foreground: var(--color-white);
 
   --font-orbitron: "Orbitron", sans-serif;
@@ -33,16 +29,21 @@
 
 body {
   @apply bg-background overflow-x-hidden bg-fixed antialiased text-sm font-orbitron text-foreground tracking-wider;
-  background-image: repeating-linear-gradient(0deg,
+  background-image:
+    repeating-linear-gradient(
+      0deg,
       --alpha(var(--color-foreground) / 5%) 0,
       --alpha(var(--color-foreground) / 5%) 1px,
       transparent 1px,
-      transparent 35rem),
-    repeating-linear-gradient(90deg,
+      transparent 35rem
+    ),
+    repeating-linear-gradient(
+      90deg,
       --alpha(var(--color-foreground) / 5%) 0,
       --alpha(var(--color-foreground) / 5%) 1px,
       transparent 1px,
-      transparent 35rem);
+      transparent 35rem
+    );
 }
 
 .typing-container {
@@ -54,7 +55,9 @@ body {
 
 .typing-text {
   display: inline-block;
-  animation: typing 6s steps(25) 1s infinite, blink 0.7s step-end infinite;
+  animation:
+    typing 6s steps(25) 1s infinite,
+    blink 0.7s step-end infinite;
 }
 
 @keyframes typing {
