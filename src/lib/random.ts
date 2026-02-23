@@ -11,3 +11,4 @@ export const rollDice = (x: Dice): number => {
 export const rollD6 = (): number => rollDice(6);
 export const rollD10 = (): number => rollDice(10);
 export const rollD100 = (): number => rollDice(100);
+export const roll2D6 = (): number => rollDice("2D6");

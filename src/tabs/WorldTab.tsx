@@ -1,6 +1,11 @@
 import { Generator } from "@/components/Generator";
 import { Section } from "@/components/Section";
-import { generateExplorationResult, generateGalacticWarProgress, generateTradeResult } from "@/generators/api";
+import {
+  generateExplorationResult,
+  generateGalacticWarProgress,
+  generateJob,
+  generateTradeResult,
+} from "@/generators/api";
 
 export function WorldTab(): React.ReactElement {
   return (
@@ -11,7 +16,7 @@ export function WorldTab(): React.ReactElement {
       </Section>
 
       <Section title="Jobs">
-        <Generator id="job" label="Generate job" onGenerate={() => "Not implemented yet"} />
+        <Generator id="job" label="Generate job" onGenerate={generateJob} />
       </Section>
 
       <Section title="Battle">

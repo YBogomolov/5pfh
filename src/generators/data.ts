@@ -1860,6 +1860,225 @@ const explorationTable: TableGenerator = {
 };
 //#endregion
 
+//#region Jobs
+const patronTable: SimpleGenerator = {
+  title: "Patron Table",
+  dice: 10,
+  skipDiceResolution: true,
+  table: [
+    { roll: "1-2", result: "Corporation" },
+    { roll: "3-4", result: "Local Government" },
+    { roll: "5-5", result: "Sector Government" },
+    { roll: "6-7", result: "Wealthy Individual" },
+    { roll: "8-9", result: "Private Organisation" },
+    { roll: "10-10", result: "Secretive Group" },
+  ],
+};
+
+const timeFrameTable: SimpleGenerator = {
+  title: "Time Frame Table",
+  dice: 10,
+  skipDiceResolution: true,
+  table: [
+    { roll: "1-5", result: "This campaign turn" },
+    { roll: "6-7", result: "This or the next campaign turn" },
+    { roll: "8-9", result: "This or the following 2 campaign turns" },
+    { roll: "10-11", result: "Any time" },
+  ],
+};
+
+const dangerPayTable: SimpleGenerator = {
+  title: "Danger Pay Table",
+  dice: 10,
+  table: [
+    { roll: "1-4", result: "+1 credit" },
+    { roll: "5-8", result: "+2 credit" },
+    { roll: "9-9", result: "+3 credit" },
+    {
+      roll: "10-11",
+      result: "+3 credits and roll twice, picking the higher die when rolling for mission pay after the battle",
+    },
+  ],
+};
+
+const benefitsSubtable: TableGenerator = {
+  title: "Benefits Subtable",
+  dice: 10,
+  table: [
+    {
+      roll: "1-2",
+      columns: [
+        { header: "Benefits", result: "Fringe Benefit" },
+        { header: "Effects", result: "Loot Table" },
+      ],
+    },
+    {
+      roll: "3-4",
+      columns: [
+        { header: "Benefits", result: "Connections" },
+        { header: "Effects", result: "Gain a Rumor." },
+      ],
+    },
+    {
+      roll: "5-5",
+      columns: [
+        { header: "Benefits", result: "Company Store" },
+        { header: "Effects", result: "Trade Table" },
+      ],
+    },
+    {
+      roll: "6-6",
+      columns: [
+        { header: "Benefits", result: "Health Insurance" },
+        { header: "Effects", result: "Mark down 2 campaign turns of injury recovery, assigned as you see fit." },
+      ],
+    },
+    {
+      roll: "7-7",
+      columns: [
+        { header: "Benefits", result: "Security Team" },
+        { header: "Effects", result: "Reduce enemy force numbers by 1." },
+      ],
+    },
+    {
+      roll: "8-9",
+      columns: [
+        { header: "Benefits", result: "Persistent" },
+        { header: "Effects", result: "Patron remains available if you travel." },
+      ],
+    },
+    {
+      roll: "10-10",
+      columns: [
+        { header: "Benefits", result: "Negotiable" },
+        {
+          header: "Effects",
+          result: "If you accept this job, you may reroll the Danger Pay roll and pick the better of the two rolls.",
+        },
+      ],
+    },
+  ],
+};
+
+const hazardsSubtable: TableGenerator = {
+  title: "Hazards Subtable",
+  dice: 10,
+  table: [
+    {
+      roll: "1-2",
+      columns: [
+        { header: "Hazards", result: "Dangerous Job" },
+        { header: "Effects", result: "Increase enemy force numbers by +1." },
+      ],
+    },
+    {
+      roll: "3-4",
+      columns: [
+        { header: "Hazards", result: "Hot Job" },
+        {
+          header: "Effects",
+          result: "After the job, you will earn an enemy on 1-2 instead of the normal roll of a 1.",
+        },
+      ],
+    },
+    {
+      roll: "5-5",
+      columns: [
+        { header: "Hazards", result: "VIP" },
+        {
+          header: "Effects",
+          result: "A random enemy will have +1 Toughness and a final Combat Skill of +2 (regardless of current value).",
+        },
+      ],
+    },
+    {
+      roll: "6-6",
+      columns: [
+        { header: "Hazards", result: "Veteran Opposition" },
+        { header: "Effects", result: "Enemy is -1 to panic range." },
+      ],
+    },
+    {
+      roll: "7-7",
+      columns: [
+        { header: "Hazards", result: "Low Priority" },
+        { header: "Effects", result: "Reduce enemy force numbers by 1." },
+      ],
+    },
+    {
+      roll: "8-10",
+      columns: [
+        { header: "Hazards", result: "Private Transport" },
+        { header: "Effects", result: "If you have Rivals, they cannot track you this campaign turn." },
+      ],
+    },
+  ],
+};
+
+const conditionsSubtable: TableGenerator = {
+  title: "Conditions Subtable",
+  dice: 10,
+  table: [
+    {
+      roll: "1-1",
+      columns: [
+        { header: "Conditions", result: "Vengeful" },
+        { header: "Effects", result: "If the mission fails, the Patron becomes a Rival." },
+      ],
+    },
+    {
+      roll: "2-3",
+      columns: [
+        { header: "Conditions", result: "Demanding" },
+        { header: "Effects", result: "Danger Pay is only upon success." },
+      ],
+    },
+    {
+      roll: "4-4",
+      columns: [
+        { header: "Conditions", result: "Small Squad" },
+        { header: "Effects", result: "You cannot deploy more than 4 crew." },
+      ],
+    },
+    {
+      roll: "5-5",
+      columns: [
+        { header: "Conditions", result: "Full Squad" },
+        { header: "Effects", result: "You must have 6 available crew." },
+      ],
+    },
+    {
+      roll: "6-6",
+      columns: [
+        { header: "Conditions", result: "Clean" },
+        { header: "Effects", result: "You cannot ever have made law enforcement Rivals." },
+      ],
+    },
+    {
+      roll: "7-8",
+      columns: [
+        { header: "Conditions", result: "Busy" },
+        { header: "Effects", result: "If the mission is a success, the Patron offers a new job next campaign turn." },
+      ],
+    },
+    {
+      roll: "9-9",
+      columns: [
+        { header: "Conditions", result: "One-time Contract" },
+        { header: "Effects", result: "This Patron cannot be retained as a contact." },
+      ],
+    },
+    {
+      roll: "10-10",
+      columns: [
+        { header: "Conditions", result: "Reputation Required" },
+        { header: "Effects", result: "You must have completed a prior Patron job on this world." },
+      ],
+    },
+  ],
+};
+//#endregion
+
 //#region ALL
 export const generators = {
   "Crew Type": crewType,
@@ -1901,5 +2120,12 @@ export const generators = {
   "Trade Table": tradeTable,
 
   "Exploration Table": explorationTable,
+
+  "Patron Table": patronTable,
+  "Danger Pay Table": dangerPayTable,
+  "Time Frame Table": timeFrameTable,
+  "Benefits Subtable": benefitsSubtable,
+  "Hazards Subtable": hazardsSubtable,
+  "Condtions Subtable": conditionsSubtable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion

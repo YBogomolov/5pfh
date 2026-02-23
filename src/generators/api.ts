@@ -1,5 +1,5 @@
 import { getValue } from "./utils";
-import { rollD100, rollDice } from "@/lib/random";
+import { rollD100, roll2D6, rollD10 } from "@/lib/random";
 import * as gen from "./data";
 
 export const generateCrewType = (): string => getValue(rollD100(), gen.generators["Crew Type"]);
@@ -32,5 +32,36 @@ export const generateTradeResult = (): string => getValue(rollD100(), gen.genera
 
 export const generateExplorationResult = (): string => getValue(rollD100(), gen.generators["Exploration Table"]);
 
-export const generateGalacticWarProgress = (): string =>
-  getValue(rollDice("2D6"), gen.generators["Galactic War Progress"]);
+export const generateGalacticWarProgress = (): string => getValue(roll2D6(), gen.generators["Galactic War Progress"]);
+
+const BHC: Record<string, [benefits: number, hazards: number, conditions: number]> = {
+  Corporation: [8, 8, 5],
+  "Local Government": [8, 8, 8],
+  "Sector Government": [8, 8, 8],
+  "Wealthy Individual": [5, 8, 8],
+  "Private Organisation": [8, 8, 8],
+  "Secretive Group": [8, 5, 8],
+};
+
+export const generateJob = (): string => {
+  const patron = getValue(rollD10(), gen.generators["Patron Table"]);
+
+  const dangerPayAdd = patron === "Corporation" ? 1 : 0;
+  const dangerPay = getValue(rollD10() + dangerPayAdd, gen.generators["Danger Pay Table"]);
+
+  const timeFrameAdd = patron === "Secretive Group" ? 1 : 0;
+  const timeFrame = getValue(rollD10() + timeFrameAdd, gen.generators["Time Frame Table"]);
+
+  const [benefitsMin, hazardsMin, conditionsMin] = BHC[patron];
+  const hasBenefits = rollD10() >= benefitsMin;
+  const hasHazards = rollD10() >= hazardsMin;
+  const hasConditions = rollD10() >= conditionsMin;
+
+  const benefits = hasBenefits ? getValue(rollD10(), gen.generators["Benefits Subtable"]) : null;
+  const hazards = hasHazards ? getValue(rollD10(), gen.generators["Hazards Subtable"]) : null;
+  const conditions = hasConditions ? getValue(rollD10(), gen.generators["Condtions Subtable"]) : null;
+
+  return [`Patron: ${patron}`, `Danger Pay: ${dangerPay}`, `Time Frame: ${timeFrame}`, benefits, hazards, conditions]
+    .filter(Boolean)
+    .join("\n");
+};
