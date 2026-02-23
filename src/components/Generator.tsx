@@ -16,7 +16,7 @@ export function Generator({ id, label, onGenerate }: GeneratorProps): React.Reac
 
   return (
     <div className="flex flex-col gap-2">
-      <Button onClick={handleGenerate} className="min-h-11">
+      <Button onClick={handleGenerate} className="min-h-11" variant="outline">
         {label}
       </Button>
       <textarea
