@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 
 export type GeneratorId = string;
 
@@ -13,7 +13,7 @@ interface GeneratorStore {
 
 const STORAGE_KEY = "5pfh-generators";
 
-function loadFromStorage(): ReadonlyMap<GeneratorId, GeneratorState> {
+export function loadFromStorage(): ReadonlyMap<GeneratorId, GeneratorState> {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return new Map();
@@ -24,7 +24,7 @@ function loadFromStorage(): ReadonlyMap<GeneratorId, GeneratorState> {
   }
 }
 
-function saveToStorage(store: ReadonlyMap<GeneratorId, GeneratorState>): void {
+export function saveToStorage(store: ReadonlyMap<GeneratorId, GeneratorState>): void {
   const obj: Record<string, string> = {};
   store.forEach((state, id) => {
     obj[id] = state.value;
@@ -35,11 +35,11 @@ function saveToStorage(store: ReadonlyMap<GeneratorId, GeneratorState>): void {
 const GeneratorStoreContext = createContext<GeneratorStore | null>(null);
 
 export function GeneratorStoreProvider({ children }: { readonly children: React.ReactNode }): React.ReactElement {
-  const [store, setStore] = useState<ReadonlyMap<GeneratorId, GeneratorState>>(loadFromStorage);
+  const [store, setStore] = useState<ReadonlyMap<GeneratorId, GeneratorState>>(new Map());
 
-  useEffect(() => {
-    saveToStorage(store);
-  }, [store]);
+  // useEffect(() => {
+  //   saveToStorage(store);
+  // }, [store]);
 
   const getState = useCallback(
     (id: GeneratorId): GeneratorState => {
@@ -59,7 +59,6 @@ export function GeneratorStoreProvider({ children }: { readonly children: React.
   return <GeneratorStoreContext.Provider value={{ getState, setState }}>{children}</GeneratorStoreContext.Provider>;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useGeneratorStore(): GeneratorStore {
   const store = useContext(GeneratorStoreContext);
   if (!store) {
@@ -68,7 +67,6 @@ export function useGeneratorStore(): GeneratorStore {
   return store;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useGeneratorState(id: GeneratorId): readonly [string, (value: string) => void] {
   const store = useGeneratorStore();
   return [store.getState(id).value, store.setState.bind(null, id)] as const;
