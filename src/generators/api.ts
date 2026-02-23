@@ -32,3 +32,7 @@ export const generateOrganicCrewInjury = (): string => getValue(rollD100(), gen.
 export const generateBotCrewInjury = (): string => getValue(rollD100(), gen.generators["Bot Injury Table"]);
 
 export const generateLoot = (): string => getValue(rollD100(), gen.generators["Loot Table"]);
+
+export const generateTradeResult = (): string => getValue(rollD100(), gen.generators["Trade Table"]);
+
+export const generateExplorationResult = (): string => getValue(rollD100(), gen.generators["Exploration Table"]);
