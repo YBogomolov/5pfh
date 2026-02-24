@@ -2292,6 +2292,7 @@ const worldTraitsTable: TableGenerator = {
     },
     {
       roll: "52-53",
+      skipDiceResolution: true,
       columns: [
         { header: "Trait", result: "Alien species restricted" },
         {
@@ -2437,6 +2438,7 @@ const worldTraitsTable: TableGenerator = {
     },
     {
       roll: "90-91",
+      skipDiceResolution: true,
       columns: [
         { header: "Trait", result: "Interdiction" },
         {
@@ -2509,6 +2511,7 @@ const starshipTravelEventsTable: TableGenerator = {
     },
     {
       roll: "13-17",
+      skipDiceResolution: true,
       columns: [
         {
           header: "Raided",
@@ -2570,6 +2573,7 @@ const starshipTravelEventsTable: TableGenerator = {
     },
     {
       roll: "45-50",
+      skipDiceResolution: true,
       columns: [
         {
           header: "Patrol ship",
@@ -2644,6 +2648,7 @@ const starshipTravelEventsTable: TableGenerator = {
     },
     {
       roll: "92-95",
+      skipDiceResolution: true,
       columns: [
         {
           header: "Time to read a book",
@@ -2797,6 +2802,7 @@ const campaignEventsTable: TableGenerator = {
     },
     {
       roll: "57-59",
+      skipDiceResolution: true,
       columns: [
         {
           header: "The crew has decided it's time for a new person to be in charge",
@@ -2960,6 +2966,7 @@ const characterEventsTable: TableGenerator = {
     },
     {
       roll: "13-15",
+      skipDiceResolution: true,
       columns: [
         {
           header: "You get a letter from home",
