@@ -32,17 +32,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: |
-          npm install
-          npm run build
-          mkdir ./final_output
-          mv ./dist ./final_output/5pfh
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: "./final_output"
+          path: "./dist"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
