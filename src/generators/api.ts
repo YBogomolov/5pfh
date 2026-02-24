@@ -73,3 +73,5 @@ export const generateStarshipEvent = (): string => getValue(rollD100(), gen.gene
 export const generateCampaignEvent = (): string => getValue(rollD100(), gen.generators["Campaign Events Table"]);
 
 export const generateCharacterEvent = (): string => getValue(rollD100(), gen.generators["Character Events Table"]);
+
+export const generateBattleEvent = (): string => getValue(rollD100(), gen.generators["Battle Events Table"]);

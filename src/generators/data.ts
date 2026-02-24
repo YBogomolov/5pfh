@@ -2115,7 +2115,7 @@ const worldTraitsTable: TableGenerator = {
         {
           header: "Description",
           result:
-            'When setting up the table, you must add 1D6+2 individual plant features or 1D3 areas of vegetation (roughly 3-5" across).',
+            'When setting up the table, you must add 1D6+2 individual plant features or 1D3 areas of vegetation (roughly 3-5" across)',
         },
       ],
     },
@@ -2399,7 +2399,7 @@ const worldTraitsTable: TableGenerator = {
         {
           header: "Description",
           result:
-            'Any character making a Dash may opt to slide 1D6" in a straight line. If they collide, they and the target are knocked 1" and Stunned.',
+            'Any character making a Dash may opt to slide 1D6" in a straight line. If they collide, they and the target are knocked 1" and Stunned',
         },
       ],
     },
@@ -2742,7 +2742,7 @@ const campaignEventsTable: TableGenerator = {
       roll: "36-38",
       columns: [
         {
-          header: 'You\'ve managed to settle some old "business".',
+          header: 'You\'ve managed to settle some old "business"',
           result:
             "If you have any, you may remove one Rival of your choice. If you have no Rivals, your captain earns +1 XP instead",
         },
@@ -3176,6 +3176,256 @@ const characterEventsTable: TableGenerator = {
 };
 //#endregion
 
+//#region Battle event
+const battleEventsTable: TableGenerator = {
+  title: "Battle Events Table",
+  dice: 100,
+  table: [
+    {
+      roll: "1-5",
+      columns: [
+        {
+          header: "Renewed efforts",
+          result:
+            "The enemy is making a concerted effort to push you back. For the rest of the battle, after all enemy figures have acted, select a random figure that may immediately take a second Move and second Combat Action",
+        },
+      ],
+    },
+    {
+      roll: "6-9",
+      columns: [
+        {
+          header: "Enemy reinforcements",
+          result:
+            "An additional 2 enemy figures arrive at the center of the opposing battlefield edge. One is armed as a Specialist (if applicable to the enemy type)",
+        },
+      ],
+    },
+    {
+      roll: "10-13",
+      columns: [
+        {
+          header: "Change of plans",
+          result:
+            "The enemy switches to the Cautious AI type for the rest of the battle. If they were already Cautious, they instead switch to Tactical AI. Enemies with no ranged attacks are unaffected by this event",
+        },
+      ],
+    },
+    {
+      roll: "14-16",
+      columns: [
+        {
+          header: "Lost heart",
+          result: "The enemy has had enough of this fight. At the end of the next round, they will leave the field",
+        },
+      ],
+    },
+    {
+      roll: "17-20",
+      columns: [
+        {
+          header: "Seized the moment",
+          result: "Select a crew member who may move and act in both the Quick and Slow Actions phases next round",
+        },
+      ],
+    },
+    {
+      roll: "21-26",
+      columns: [
+        {
+          header: "Critters!",
+          result:
+            'Place 1D3 Vent Crawlers in the center of the table, and move each of them 1D6" in a random direction. At the beginning of the Enemy Actions phase, they will move towards the nearest figure and attack, regardless of which side the figure is on. If you are already fighting Vent Crawlers, this is bad news, as they are of course part of the enemy brood',
+        },
+      ],
+    },
+    {
+      roll: "27-30",
+      columns: [
+        {
+          header: "Ammo fault",
+          result:
+            "Select a random figure in your crew. If they fired a weapon last round, it cannot be used for the rest of the battle. If they did not, select a random carried weapon, which can be fired only once this battle",
+        },
+      ],
+    },
+    {
+      roll: "31-34",
+      columns: [
+        {
+          header: "Visibility change",
+          result:
+            'If visibility is currently reduced, increase the vision range by +1D6". If visibility is currently unlimited, reduce it to 1D6+6"',
+        },
+      ],
+    },
+    {
+      roll: "35-38",
+      columns: [
+        {
+          header: "Tougher than expected",
+          result:
+            "Select a random enemy figure. They receive +1 Toughness (to a maximum of 6) and remove all current stun markers on that figure",
+        },
+      ],
+    },
+    {
+      roll: "39-42",
+      columns: [
+        {
+          header: "Snap shot",
+          result:
+            "Select a figure in your crew. They may fire a weapon immediately. If the weapon is a Pistol, it Hits automatically, otherwise roll to Hit normally",
+        },
+      ],
+    },
+    {
+      roll: "43-46",
+      columns: [
+        {
+          header: "Cunning plan",
+          result:
+            "In the next round, do not roll for Initiative. Each of your crew acts in the Quick or Slow Actions phase as you prefer",
+        },
+      ],
+    },
+    {
+      roll: "47-50",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "Possible reinforcements",
+          result:
+            'Place 3 markers evenly spaced along the opposing battlefield edge. At the start of the Enemy Actions phase next round, select a random marker, and roll 1D6. On a 5-6, a new basic enemy figure is placed on the marker, otherwise it is removed. Roll for one marker per round until they are all gone. If a crew member moves within 3" of a marker, it is removed instantly',
+        },
+      ],
+    },
+    {
+      roll: "51-54",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "Clock is running out",
+          result:
+            "At the end of the next round and each round thereafter, roll 1D6. On a 6, the game ends immediately, and you are unable to complete any objectives. You will not count as Holding the Field unless you clear the table of enemies before this happens",
+        },
+      ],
+    },
+    {
+      roll: "55-60",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "Environmental hazard",
+          result:
+            'Select a random terrain feature. Any figure currently in, on, or within 1" of the feature must roll 1D6+Savvy and achieve a 5+ (enemies roll 1D6 and must roll a 4+) or take a Damage +1 Hit, ignoring any Armor Saving Throws. The feature is safe afterwards',
+        },
+      ],
+    },
+    {
+      roll: "61-65",
+      columns: [
+        {
+          header: "A desperate plan",
+          result:
+            "A random figure in your crew cannot act next round, but instead select another figure of choice that may act in both the Quick and Slow Actions phases",
+        },
+      ],
+    },
+    {
+      roll: "66-70",
+      columns: [
+        {
+          header: "A moment of hesitation",
+          result:
+            "Next round, select a single figure that acts in the Quick Actions phase (if any Feral are in the squad, you must select a Feral). All other figures acts in the Slow Actions phase",
+        },
+      ],
+    },
+    {
+      roll: "71-73",
+      columns: [
+        {
+          header: "Fumbled grenade",
+          result:
+            'A random enemy fumbles a grenade. The figure in question runs 6" in a random direction and is then Stunned. Every figure, crew and enemy within 4" of the initial position will immediately run 4" directly away. The grenade then goes off harmlessly. If the enemy is one that would not use grenades, nothing happens',
+        },
+      ],
+    },
+    {
+      roll: "74-77",
+      columns: [
+        {
+          header: "Back up",
+          result:
+            "If you have spare crew not taking part in the battle, you may have one crew member arrive. Place them on the center of your own battlefield edge",
+        },
+      ],
+    },
+    {
+      roll: "78-80",
+      columns: [
+        {
+          header: "Enemy VIP",
+          result:
+            "A Unique Individual immediately joins the enemy force. Place them on the center of their battlefield edge",
+        },
+      ],
+    },
+    {
+      roll: "81-85",
+      columns: [
+        {
+          header: "Fog cloud",
+          result:
+            'A dense cloud of fog envelops the center of the table for the rest of the battle. It extends 6" in every direction and blocks all visibility past 2"',
+        },
+      ],
+    },
+    {
+      roll: "86-89",
+      columns: [
+        {
+          header: "Lost!",
+          result:
+            "A random crew member loses their way and misses the rest of the battle. Remove the figure from the battlefield. They rejoin you safely afterwards, looking a bit sheepish. Ignore this event if you are currently outnumbered",
+        },
+      ],
+    },
+    {
+      roll: "90-93",
+      columns: [
+        {
+          header: "I found something!",
+          result:
+            'Randomly select a crew member, then place a marker 1D6" from them in a random direction. The enemy will ignore it. If any crew member moves into contact and spends a non-Combat Action, roll for a Loot item and claim it for use immediately',
+        },
+      ],
+    },
+    {
+      roll: "94-97",
+      columns: [
+        {
+          header: "Looks valuable",
+          result:
+            'Randomly select a crew member, then place a marker 1D6" from them in a random direction. The enemy will ignore it. If any crew member moves into contact and spends a non-Combat Action, obtain 1D3 credits',
+        },
+      ],
+    },
+    {
+      roll: "98-100",
+      columns: [
+        {
+          header: "You want me to check that out?",
+          result:
+            "Select a random crew member. They may opt to go check out something they insist they saw. If they do, they are removed from the battle. After the battle ends, they may roll once on the Loot table. If you opt not to go, you cannot send a different character, and the chance is lost",
+        },
+      ],
+    },
+  ],
+};
+//#endregion
+
 //#region ALL
 export const generators = {
   "Crew Type": crewType,
@@ -3232,5 +3482,7 @@ export const generators = {
   "Campaign Events Table": campaignEventsTable,
 
   "Character Events Table": characterEventsTable,
+
+  "Battle Events Table": battleEventsTable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion

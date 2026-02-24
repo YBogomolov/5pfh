@@ -1,6 +1,7 @@
 import { Generator } from "@/components/Generator";
 import { Section } from "@/components/Section";
 import {
+  generateBattleEvent,
   generateCampaignEvent,
   generateCharacterEvent,
   generateExplorationResult,
@@ -22,8 +23,8 @@ export function WorldTab(): React.ReactElement {
       </Section>
 
       <Section title="Battle">
-        <Generator id="battle-setup" label="Battle setup" onGenerate={() => "Not implemented yet"} />
-        <Generator id="battle-event" label="Battle event" onGenerate={() => "Not implemented yet"} />
+        {/* <Generator id="battle-setup" label="Battle setup" onGenerate={() => "Not implemented yet"} /> */}
+        <Generator id="battle-event" label="Battle event" onGenerate={generateBattleEvent} />
       </Section>
 
       <Section title="Galactic War">
