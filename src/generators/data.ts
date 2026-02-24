@@ -780,7 +780,7 @@ const injuryTable: TableGenerator = {
       roll: "1-5",
       columns: [
         { header: "Result", result: "Gruesome fate" },
-        { header: "Effects", result: "Dead, and all carried equipment is damaged." },
+        { header: "Effects", result: "Dead, and all carried equipment is damaged" },
         { header: "Campaign Turns in Sick Bay", result: "-" },
       ],
     },
@@ -788,7 +788,7 @@ const injuryTable: TableGenerator = {
       roll: "6-15",
       columns: [
         { header: "Result", result: "Death or permanent injury" },
-        { header: "Effects", result: "Dead, or removed from the campaign." },
+        { header: "Effects", result: "Dead, or removed from the campaign" },
         { header: "Campaign Turns in Sick Bay", result: "-" },
       ],
     },
@@ -798,7 +798,7 @@ const injuryTable: TableGenerator = {
         { header: "Result", result: "Miraculous escape" },
         {
           header: "Effects",
-          result: "The character survives and receives +1 Luck, but all items carried are permanently lost.",
+          result: "The character survives and receives +1 Luck, but all items carried are permanently lost",
         },
         { header: "Campaign Turns in Sick Bay", result: "-" },
       ],
@@ -807,7 +807,7 @@ const injuryTable: TableGenerator = {
       roll: "17-30",
       columns: [
         { header: "Result", result: "Equipment loss" },
-        { header: "Effects", result: "Random carried item is damaged." },
+        { header: "Effects", result: "Random carried item is damaged" },
         { header: "Campaign Turns in Sick Bay", result: "-" },
       ],
     },
@@ -818,7 +818,7 @@ const injuryTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Require 1D6 credits of surgery immediately, or suffer -1 permanent reduction to highest of Speed or Toughness.",
+            "Require 1D6 credits of surgery immediately, or suffer -1 permanent reduction to highest of Speed or Toughness",
         },
         { header: "Campaign Turns in Sick Bay", result: "1D6" },
       ],
@@ -866,7 +866,7 @@ const botInjuryTable: TableGenerator = {
       roll: "1-5",
       columns: [
         { header: "Result", result: "Obliterated" },
-        { header: "Effects", result: "Destroyed, and all carried equipment is damaged." },
+        { header: "Effects", result: "Destroyed, and all carried equipment is damaged" },
         { header: "Repair Time", result: "-" },
       ],
     },
@@ -882,7 +882,7 @@ const botInjuryTable: TableGenerator = {
       roll: "16-30",
       columns: [
         { header: "Result", result: "Equipment loss" },
-        { header: "Effects", result: "Random carried item is damaged." },
+        { header: "Effects", result: "Random carried item is damaged" },
         { header: "Repair Time", result: "0" },
       ],
     },
@@ -1209,7 +1209,7 @@ const rewardsSubtable: TableGenerator = {
       roll: "71-85",
       columns: [
         { header: "Reward", result: "Ship Parts" },
-        { header: "Result", result: "Discount your next ship component purchase by 1D6 credits." },
+        { header: "Result", result: "Discount your next ship component purchase by 1D6 credits" },
       ],
     },
     {
@@ -1218,7 +1218,7 @@ const rewardsSubtable: TableGenerator = {
         { header: "Reward", result: "Military Ship Part" },
         {
           header: "Result",
-          result: "Discount your next ship component purchase by 1D6+2 credits.",
+          result: "Discount your next ship component purchase by 1D6+2 credits",
         },
       ],
     },
@@ -1297,7 +1297,7 @@ const tradeTable: TableGenerator = {
       roll: "4-6",
       columns: [
         { header: "Trade Result", result: "Sell some cargo" },
-        { header: "Effects", result: "Earn 2 credits." },
+        { header: "Effects", result: "Earn 2 credits" },
       ],
     },
     {
@@ -1311,14 +1311,14 @@ const tradeTable: TableGenerator = {
       roll: "10-11",
       columns: [
         { header: "Trade Result", result: "Quality food and booze" },
-        { header: "Effects", result: "Recruit a new character to your crew. Single-use." },
+        { header: "Effects", result: "Recruit a new character to your crew. Single-use" },
       ],
     },
     {
       roll: "12-14",
       columns: [
         { header: "Trade Result", result: "Instruction book" },
-        { header: "Effects", result: "A crew member of choice can read it and earn +1 XP. Single-use." },
+        { header: "Effects", result: "A crew member of choice can read it and earn +1 XP. Single-use" },
       ],
     },
     {
@@ -1327,7 +1327,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "Bits of scrap" },
         {
           header: "Effects",
-          result: "You sell it on to an interested party, earning 1 credit of profit in the process.",
+          result: "You sell it on to an interested party, earning 1 credit of profit in the process",
         },
       ],
     },
@@ -1335,7 +1335,7 @@ const tradeTable: TableGenerator = {
       roll: "19-22",
       columns: [
         { header: "Trade Result", result: "Medical pack" },
-        { header: "Effects", result: "Receive your choice of a Stim-pack or Med-patch." },
+        { header: "Effects", result: "Receive your choice of a Stim-pack or Med-patch" },
       ],
     },
     {
@@ -1343,7 +1343,7 @@ const tradeTable: TableGenerator = {
       skipDiceResolution: true,
       columns: [
         { header: "Trade Result", result: "Worthless trinket" },
-        { header: "Effects", result: "Worthless? Roll 1D6. On a 6, earn +1 story point." },
+        { header: "Effects", result: "Worthless? Roll 1D6. On a 6, earn +1 story point" },
       ],
     },
     {
@@ -1352,7 +1352,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "Local maps" },
         {
           header: "Effects",
-          result: "If you receive a Quest on this or the following world, you may immediately add 1 Rumor. Single-use.",
+          result: "If you receive a Quest on this or the following world, you may immediately add 1 Rumor. Single-use",
         },
       ],
     },
@@ -1363,7 +1363,7 @@ const tradeTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "If Recruiting, you may use it as a gift to receive a +2 bonus to the roll. Alternatively, you can sell it: Roll twice on the Trade Table and select the result you prefer. If a Swift character finds this, they will keep it for themselves, earning +2 XP. Single-use.",
+            "If Recruiting, you may use it as a gift to receive a +2 bonus to the roll. Alternatively, you can sell it: Roll twice on the Trade Table and select the result you prefer. If a Swift character finds this, they will keep it for themselves, earning +2 XP. Single-use",
         },
       ],
     },
@@ -1371,7 +1371,7 @@ const tradeTable: TableGenerator = {
       roll: "29-30",
       columns: [
         { header: "Trade Result", result: "Basic supplies" },
-        { header: "Effects", result: "Skip Upkeep costs for one campaign turn. Single-use." },
+        { header: "Effects", result: "Skip Upkeep costs for one campaign turn. Single-use" },
       ],
     },
     {
@@ -1381,7 +1381,7 @@ const tradeTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "You can turn this down, but if you accept it, you earn 1D6 credits from selling it on. If you roll a 4-6, you also receive a Rival.",
+            "You can turn this down, but if you accept it, you earn 1D6 credits from selling it on. If you roll a 4-6, you also receive a Rival",
         },
       ],
     },
@@ -1389,7 +1389,7 @@ const tradeTable: TableGenerator = {
       roll: "35-37",
       columns: [
         { header: "Trade Result", result: "Gun Upgrade Kit" },
-        { header: "Effects", result: "Receive your choice of a Laser Sight, Bipod or Beam Light." },
+        { header: "Effects", result: "Receive your choice of a Laser Sight, Bipod or Beam Light" },
       ],
     },
     {
@@ -1397,7 +1397,7 @@ const tradeTable: TableGenerator = {
       skipDiceResolution: true,
       columns: [
         { header: "Trade Result", result: "Useless trinket" },
-        { header: "Effects", result: "Useless? Roll 1D6. On a 6, earn +1 story point." },
+        { header: "Effects", result: "Useless? Roll 1D6. On a 6, earn +1 story point" },
       ],
     },
     {
@@ -1408,7 +1408,7 @@ const tradeTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Every time you arrive on a new planet, you may roll 1D6 to see how many Credits the goods will sell for here. You can wait as long as you like, but if you roll a 1, they have perished or become damaged, and are now worthless.",
+            "Every time you arrive on a new planet, you may roll 1D6 to see how many Credits the goods will sell for here. You can wait as long as you like, but if you roll a 1, they have perished or become damaged, and are now worthless",
         },
       ],
     },
@@ -1425,7 +1425,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "Fuel" },
         {
           header: "Effects",
-          result: "You have secured 1D6 credits worth of fuel, which can be used to offset travel costs.",
+          result: "You have secured 1D6 credits worth of fuel, which can be used to offset travel costs",
         },
       ],
     },
@@ -1436,7 +1436,7 @@ const tradeTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Add +1 when making a Repair attempt. If the roll is a natural 1, the Spare Parts are used up and must be erased from your roster.",
+            "Add +1 when making a Repair attempt. If the roll is a natural 1, the Spare Parts are used up and must be erased from your roster",
         },
       ],
     },
@@ -1447,7 +1447,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "Tourist garbage" },
         {
           header: "Effects",
-          result: "Not actually worth anything, but roll 1D6. On a 5-6, you can add 1 story point.",
+          result: "Not actually worth anything, but roll 1D6. On a 5-6, you can add 1 story point",
         },
       ],
     },
@@ -1458,7 +1458,7 @@ const tradeTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "You may pay 3 credits. If you do, you can roll on the Loot Table. The item must be used by the crew member who went trading.",
+            "You may pay 3 credits. If you do, you can roll on the Loot Table. The item must be used by the crew member who went trading",
         },
       ],
     },
@@ -1473,7 +1473,7 @@ const tradeTable: TableGenerator = {
       roll: "60-62",
       columns: [
         { header: "Trade Result", result: "Basic firearms" },
-        { header: "Effects", result: "Your choice of a Handgun, Colony Rifle, or Shotgun." },
+        { header: "Effects", result: "Your choice of a Handgun, Colony Rifle, or Shotgun" },
       ],
     },
     {
@@ -1484,7 +1484,7 @@ const tradeTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "If you want to buy this, pay 1 credit, then roll 1D6. On a 6, you can roll on the Loot Table. On any other score, it's complete garbage.",
+            "If you want to buy this, pay 1 credit, then roll 1D6. On a 6, you can roll on the Loot Table. On any other score, it's complete garbage",
         },
       ],
     },
@@ -1492,14 +1492,14 @@ const tradeTable: TableGenerator = {
       roll: "64-65",
       columns: [
         { header: "Trade Result", result: "Military fuel cell" },
-        { header: "Effects", result: "Zero travel costs when jumping to a new planet. Single-use." },
+        { header: "Effects", result: "Zero travel costs when jumping to a new planet. Single-use" },
       ],
     },
     {
       roll: "66-69",
       columns: [
         { header: "Trade Result", result: "Hot tip" },
-        { header: "Effects", result: "Gain 1 Quest Rumor." },
+        { header: "Effects", result: "Gain 1 Quest Rumor" },
       ],
     },
     {
@@ -1508,7 +1508,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "Insider information" },
         {
           header: "Effects",
-          result: "Automatically obtain a Patron next campaign turn, if you look for one. Single-use.",
+          result: "Automatically obtain a Patron next campaign turn, if you look for one. Single-use",
         },
       ],
     },
@@ -1516,7 +1516,7 @@ const tradeTable: TableGenerator = {
       roll: "72-75",
       columns: [
         { header: "Trade Result", result: "Army surplus" },
-        { header: "Effects", result: "Your choice of an Auto Rifle, Blast Pistol or Glare Sword." },
+        { header: "Effects", result: "Your choice of an Auto Rifle, Blast Pistol or Glare Sword" },
       ],
     },
     {
@@ -1525,7 +1525,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "A chance to unload some stuff" },
         {
           header: "Effects",
-          result: "A revolutionary will buy any weapons for 2 credits each, provided they are not damaged.",
+          result: "A revolutionary will buy any weapons for 2 credits each, provided they are not damaged",
         },
       ],
     },
@@ -1542,7 +1542,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "Gently used" },
         {
           header: "Effects",
-          result: "Roll once on the Gear Table. The item is damaged and needs Repair.",
+          result: "Roll once on the Gear Table. The item is damaged and needs Repair",
         },
       ],
     },
@@ -1550,14 +1550,14 @@ const tradeTable: TableGenerator = {
       roll: "87-91",
       columns: [
         { header: "Trade Result", result: "Pre-owned" },
-        { header: "Effects", result: "Roll once on the Loot Table. The item is damaged and needs Repair." },
+        { header: "Effects", result: "Roll once on the Loot Table. The item is damaged and needs Repair" },
       ],
     },
     {
       roll: "92-95",
       columns: [
         { header: "Trade Result", result: "Medical reserves" },
-        { header: "Effects", result: "Obtain 2 Stim-packs and 2 Med-patches." },
+        { header: "Effects", result: "Obtain 2 Stim-packs and 2 Med-patches" },
       ],
     },
     {
@@ -1566,7 +1566,7 @@ const tradeTable: TableGenerator = {
         { header: "Trade Result", result: "Starship repair parts" },
         {
           header: "Effects",
-          result: "Count as 1D6 credits for the purpose of repairing Hull Point damage. Single-use.",
+          result: "Count as 1D6 credits for the purpose of repairing Hull Point damage. Single-use",
         },
       ],
     },
@@ -1590,7 +1590,7 @@ const explorationTable: TableGenerator = {
       roll: "4-6",
       columns: [
         { header: "Exploration Result", result: "Meet a Patron" },
-        { header: "Effects", result: "You are offered a Patron job." },
+        { header: "Effects", result: "You are offered a Patron job" },
       ],
     },
     {
@@ -1600,7 +1600,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "The character eats bad food, and must spend 1 campaign turn in Sick Bay. Soulless and K’Erin ignore this event.",
+            "The character eats bad food, and must spend 1 campaign turn in Sick Bay. Soulless and K’Erin ignore this event",
         },
       ],
     },
@@ -1611,7 +1611,7 @@ const explorationTable: TableGenerator = {
         { header: "Exploration Result", result: "Meet someone interesting" },
         {
           header: "Effects",
-          result: "Gain a Quest Rumor. A Precursor character may roll 1D6, and on a 5+ receives a second Rumor.",
+          result: "Gain a Quest Rumor. A Precursor character may roll 1D6, and on a 5+ receives a second Rumor",
         },
       ],
     },
@@ -1620,14 +1620,14 @@ const explorationTable: TableGenerator = {
       skipDiceResolution: true,
       columns: [
         { header: "Exploration Result", result: "Had a nice chat" },
-        { header: "Effects", result: "Roll 1D6+Savvy. On a 5+ gain +1 story point." },
+        { header: "Effects", result: "Roll 1D6+Savvy. On a 5+ gain +1 story point" },
       ],
     },
     {
       roll: "16-18",
       columns: [
         { header: "Exploration Result", result: "See the sights, enjoy the view" },
-        { header: "Effects", result: "No effects." },
+        { header: "Effects", result: "No effects" },
       ],
     },
     {
@@ -1637,7 +1637,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Roll up a new character and add them to the crew. If your character is Feral, the new character is also Feral.",
+            "Roll up a new character and add them to the crew. If your character is Feral, the new character is also Feral",
         },
       ],
     },
@@ -1645,7 +1645,7 @@ const explorationTable: TableGenerator = {
       roll: "22-24",
       columns: [
         { header: "Exploration Result", result: "Time to relax" },
-        { header: "Effects", result: "No effects." },
+        { header: "Effects", result: "No effects" },
       ],
     },
     {
@@ -1656,7 +1656,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Give up a weapon of choice, then roll 1D6. On a 6, get a roll on the Loot Table. Otherwise get 1 credit.",
+            "Give up a weapon of choice, then roll 1D6. On a 6, get a roll on the Loot Table. Otherwise get 1 credit",
         },
       ],
     },
@@ -1664,7 +1664,7 @@ const explorationTable: TableGenerator = {
       roll: "29-31",
       columns: [
         { header: "Exploration Result", result: "Alien merchant" },
-        { header: "Effects", result: "Give him any item, then roll on the Loot Table." },
+        { header: "Effects", result: "Give him any item, then roll on the Loot Table" },
       ],
     },
     {
@@ -1673,7 +1673,7 @@ const explorationTable: TableGenerator = {
         { header: "Exploration Result", result: "Got yourself noticed" },
         {
           header: "Effects",
-          result: "If you have Rivals, select one at random. You will have to fight them this campaign turn.",
+          result: "If you have Rivals, select one at random. You will have to fight them this campaign turn",
         },
       ],
     },
@@ -1681,7 +1681,7 @@ const explorationTable: TableGenerator = {
       roll: "35-37",
       columns: [
         { header: "Exploration Result", result: "You hear a tip" },
-        { header: "Effects", result: "You may opt to automatically track down a Rival to fight this campaign turn." },
+        { header: "Effects", result: "You may opt to automatically track down a Rival to fight this campaign turn" },
       ],
     },
     {
@@ -1692,7 +1692,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Roll 1D6+Savvy. On a 4+ the character finds their way back in time, otherwise they will be unable to participate in a battle this campaign turn. Either way, roll again on this table to see what they find while wandering the streets.",
+            "Roll 1D6+Savvy. On a 4+ the character finds their way back in time, otherwise they will be unable to participate in a battle this campaign turn. Either way, roll again on this table to see what they find while wandering the streets",
         },
       ],
     },
@@ -1704,7 +1704,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "When you travel to a new world, if this crew member is still in the crew, earn 3 credits and roll 1D6. On 1-2, you've acquired a Rival and receive +1 story point.",
+            "When you travel to a new world, if this crew member is still in the crew, earn 3 credits and roll 1D6. On 1-2, you've acquired a Rival and receive +1 story point",
         },
       ],
     },
@@ -1716,7 +1716,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Pick a damaged item of equipment and roll 1D6. On 5-6 you have it fixed for free. An Engineer instead spends the afternoon talking shop, earning +2 XP.",
+            "Pick a damaged item of equipment and roll 1D6. On 5-6 you have it fixed for free. An Engineer instead spends the afternoon talking shop, earning +2 XP",
         },
       ],
     },
@@ -1724,7 +1724,7 @@ const explorationTable: TableGenerator = {
       roll: "48-50",
       columns: [
         { header: "Exploration Result", result: "Got a few drinks" },
-        { header: "Effects", result: "No effects." },
+        { header: "Effects", result: "No effects" },
       ],
     },
     {
@@ -1733,7 +1733,7 @@ const explorationTable: TableGenerator = {
         { header: "Exploration Result", result: "I don’t have a gambling problem!" },
         {
           header: "Effects",
-          result: "Discard one item from the character’s equipment or crew Stash. Soulless ignore this event.",
+          result: "Discard one item from the character’s equipment or crew Stash. Soulless ignore this event",
         },
       ],
     },
@@ -1741,7 +1741,7 @@ const explorationTable: TableGenerator = {
       roll: "54-57",
       columns: [
         { header: "Exploration Result", result: "Overheard some talk" },
-        { header: "Effects", result: "Gain a Rumor." },
+        { header: "Effects", result: "Gain a Rumor" },
       ],
     },
     {
@@ -1751,7 +1751,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Add a Rival to your list. If a K’Erin gets this event, add the Rival as normal, but the first time you meet them in battle, they have -1 enemy, as you already knocked one out in the initial brawl.",
+            "Add a Rival to your list. If a K’Erin gets this event, add the Rival as normal, but the first time you meet them in battle, they have -1 enemy, as you already knocked one out in the initial brawl",
         },
       ],
     },
@@ -1759,14 +1759,14 @@ const explorationTable: TableGenerator = {
       roll: "61-64",
       columns: [
         { header: "Exploration Result", result: "Found a trainer" },
-        { header: "Effects", result: "Character earns +2 XP." },
+        { header: "Effects", result: "Character earns +2 XP" },
       ],
     },
     {
       roll: "65-68",
       columns: [
         { header: "Exploration Result", result: "Information broker" },
-        { header: "Effects", result: "Buy up to 3 Rumors for 2 credits each." },
+        { header: "Effects", result: "Buy up to 3 Rumors for 2 credits each" },
       ],
     },
     {
@@ -1775,7 +1775,7 @@ const explorationTable: TableGenerator = {
         { header: "Exploration Result", result: "Arms dealer" },
         {
           header: "Effects",
-          result: "Purchase any number of rolls on the Military Weapons Table for 3 credits each.",
+          result: "Purchase any number of rolls on the Military Weapons Table for 3 credits each",
         },
       ],
     },
@@ -1783,7 +1783,7 @@ const explorationTable: TableGenerator = {
       roll: "72-75",
       columns: [
         { header: "Exploration Result", result: "Promising lead" },
-        { header: "Effects", result: "Earn +3 credits if you do an Opportunity mission this campaign turn." },
+        { header: "Effects", result: "Earn +3 credits if you do an Opportunity mission this campaign turn" },
       ],
     },
     {
@@ -1793,7 +1793,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "You found Roll on the Gadget Table, but the item is damaged and needs to be repaired before it can be used. If the character is an Engineer, the item works right away.",
+            "You found Roll on the Gadget Table, but the item is damaged and needs to be repaired before it can be used. If the character is an Engineer, the item works right away",
         },
       ],
     },
@@ -1804,7 +1804,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "Character must spend 1D3 campaign turns in Sick Bay, and loses one item of carried equipment (player choice).",
+            "Character must spend 1D3 campaign turns in Sick Bay, and loses one item of carried equipment (player choice)",
         },
       ],
     },
@@ -1815,7 +1815,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "When fighting this campaign turn, select a random enemy figure. If your crew kills them, earn 2 credits. No reward if they run away.",
+            "When fighting this campaign turn, select a random enemy figure. If your crew kills them, earn 2 credits. No reward if they run away",
         },
       ],
     },
@@ -1826,7 +1826,7 @@ const explorationTable: TableGenerator = {
         {
           header: "Effects",
           result:
-            "When fighting this campaign turn, select a random terrain feature. If a crew member moves into contact and spends a Combat Action, you can retrieve a package and earn 2 credits.",
+            "When fighting this campaign turn, select a random terrain feature. If a crew member moves into contact and spends a Combat Action, you can retrieve a package and earn 2 credits",
         },
       ],
     },
@@ -1836,7 +1836,7 @@ const explorationTable: TableGenerator = {
         { header: "Exploration Result", result: "You make a useful contact" },
         {
           header: "Effects",
-          result: "Next campaign turn, add +1 to your choice of a roll to Recruit, Find a Patron, or Track a Rival.",
+          result: "Next campaign turn, add +1 to your choice of a roll to Recruit, Find a Patron, or Track a Rival",
         },
       ],
     },
@@ -1844,17 +1844,17 @@ const explorationTable: TableGenerator = {
       roll: "95-96",
       columns: [
         { header: "Exploration Result", result: "Who left this lying around?" },
-        { header: "Effects", result: "Add your choice of a Handgun, Blade, Colony Rifle, or Shotgun." },
+        { header: "Effects", result: "Add your choice of a Handgun, Blade, Colony Rifle, or Shotgun" },
       ],
     },
     {
       roll: "97-100",
       columns: [
-        { header: "Exploration Result", result: "This place is rather nice, really." },
+        { header: "Exploration Result", result: "This place is rather nice, really" },
         {
           header: "Effects",
           result:
-            "When you are ready to leave this world, unless it is being Invaded, you must pay 1 story point or this crew member will decide to stay behind. If they do, you can keep their equipment, though.",
+            "When you are ready to leave this world, unless it is being Invaded, you must pay 1 story point or this crew member will decide to stay behind. If they do, you can keep their equipment, though",
         },
       ],
     },
@@ -1918,7 +1918,7 @@ const benefitsSubtable: TableGenerator = {
       roll: "3-4",
       columns: [
         { header: "Benefits", result: "Connections" },
-        { header: "Effects", result: "Gain a Rumor." },
+        { header: "Effects", result: "Gain a Rumor" },
       ],
     },
     {
@@ -1932,21 +1932,21 @@ const benefitsSubtable: TableGenerator = {
       roll: "6-6",
       columns: [
         { header: "Benefits", result: "Health Insurance" },
-        { header: "Effects", result: "Mark down 2 campaign turns of injury recovery, assigned as you see fit." },
+        { header: "Effects", result: "Mark down 2 campaign turns of injury recovery, assigned as you see fit" },
       ],
     },
     {
       roll: "7-7",
       columns: [
         { header: "Benefits", result: "Security Team" },
-        { header: "Effects", result: "Reduce enemy force numbers by 1." },
+        { header: "Effects", result: "Reduce enemy force numbers by 1" },
       ],
     },
     {
       roll: "8-9",
       columns: [
         { header: "Benefits", result: "Persistent" },
-        { header: "Effects", result: "Patron remains available if you travel." },
+        { header: "Effects", result: "Patron remains available if you travel" },
       ],
     },
     {
@@ -1955,7 +1955,7 @@ const benefitsSubtable: TableGenerator = {
         { header: "Benefits", result: "Negotiable" },
         {
           header: "Effects",
-          result: "If you accept this job, you may reroll the Danger Pay roll and pick the better of the two rolls.",
+          result: "If you accept this job, you may reroll the Danger Pay roll and pick the better of the two rolls",
         },
       ],
     },
@@ -1970,7 +1970,7 @@ const hazardsSubtable: TableGenerator = {
       roll: "1-2",
       columns: [
         { header: "Hazards", result: "Dangerous Job" },
-        { header: "Effects", result: "Increase enemy force numbers by +1." },
+        { header: "Effects", result: "Increase enemy force numbers by +1" },
       ],
     },
     {
@@ -1979,7 +1979,7 @@ const hazardsSubtable: TableGenerator = {
         { header: "Hazards", result: "Hot Job" },
         {
           header: "Effects",
-          result: "After the job, you will earn an enemy on 1-2 instead of the normal roll of a 1.",
+          result: "After the job, you will earn an enemy on 1-2 instead of the normal roll of a 1",
         },
       ],
     },
@@ -1989,7 +1989,7 @@ const hazardsSubtable: TableGenerator = {
         { header: "Hazards", result: "VIP" },
         {
           header: "Effects",
-          result: "A random enemy will have +1 Toughness and a final Combat Skill of +2 (regardless of current value).",
+          result: "A random enemy will have +1 Toughness and a final Combat Skill of +2 (regardless of current value)",
         },
       ],
     },
@@ -1997,21 +1997,21 @@ const hazardsSubtable: TableGenerator = {
       roll: "6-6",
       columns: [
         { header: "Hazards", result: "Veteran Opposition" },
-        { header: "Effects", result: "Enemy is -1 to panic range." },
+        { header: "Effects", result: "Enemy is -1 to panic range" },
       ],
     },
     {
       roll: "7-7",
       columns: [
         { header: "Hazards", result: "Low Priority" },
-        { header: "Effects", result: "Reduce enemy force numbers by 1." },
+        { header: "Effects", result: "Reduce enemy force numbers by 1" },
       ],
     },
     {
       roll: "8-10",
       columns: [
         { header: "Hazards", result: "Private Transport" },
-        { header: "Effects", result: "If you have Rivals, they cannot track you this campaign turn." },
+        { header: "Effects", result: "If you have Rivals, they cannot track you this campaign turn" },
       ],
     },
   ],
@@ -2025,56 +2025,56 @@ const conditionsSubtable: TableGenerator = {
       roll: "1-1",
       columns: [
         { header: "Conditions", result: "Vengeful" },
-        { header: "Effects", result: "If the mission fails, the Patron becomes a Rival." },
+        { header: "Effects", result: "If the mission fails, the Patron becomes a Rival" },
       ],
     },
     {
       roll: "2-3",
       columns: [
         { header: "Conditions", result: "Demanding" },
-        { header: "Effects", result: "Danger Pay is only upon success." },
+        { header: "Effects", result: "Danger Pay is only upon success" },
       ],
     },
     {
       roll: "4-4",
       columns: [
         { header: "Conditions", result: "Small Squad" },
-        { header: "Effects", result: "You cannot deploy more than 4 crew." },
+        { header: "Effects", result: "You cannot deploy more than 4 crew" },
       ],
     },
     {
       roll: "5-5",
       columns: [
         { header: "Conditions", result: "Full Squad" },
-        { header: "Effects", result: "You must have 6 available crew." },
+        { header: "Effects", result: "You must have 6 available crew" },
       ],
     },
     {
       roll: "6-6",
       columns: [
         { header: "Conditions", result: "Clean" },
-        { header: "Effects", result: "You cannot ever have made law enforcement Rivals." },
+        { header: "Effects", result: "You cannot ever have made law enforcement Rivals" },
       ],
     },
     {
       roll: "7-8",
       columns: [
         { header: "Conditions", result: "Busy" },
-        { header: "Effects", result: "If the mission is a success, the Patron offers a new job next campaign turn." },
+        { header: "Effects", result: "If the mission is a success, the Patron offers a new job next campaign turn" },
       ],
     },
     {
       roll: "9-9",
       columns: [
         { header: "Conditions", result: "One-time Contract" },
-        { header: "Effects", result: "This Patron cannot be retained as a contact." },
+        { header: "Effects", result: "This Patron cannot be retained as a contact" },
       ],
     },
     {
       roll: "10-10",
       columns: [
         { header: "Conditions", result: "Reputation Required" },
-        { header: "Effects", result: "You must have completed a prior Patron job on this world." },
+        { header: "Effects", result: "You must have completed a prior Patron job on this world" },
       ],
     },
   ],
@@ -2125,7 +2125,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Warzone" },
         {
           header: "Description",
-          result: "When setting up the table, you must add 1D3 ruined buildings or craters to the table.",
+          result: "When setting up the table, you must add 1D3 ruined buildings or craters to the table",
         },
       ],
     },
@@ -2136,7 +2136,7 @@ const worldTraitsTable: TableGenerator = {
         {
           header: "Description",
           result:
-            "When fighting opponents from the Criminal Elements Encounter Table, the number encountered is reduced by 1. When rolling to see if they become Rivals, only roll a single die as normal.",
+            "When fighting opponents from the Criminal Elements Encounter Table, the number encountered is reduced by 1. When rolling to see if they become Rivals, only roll a single die as normal",
         },
       ],
     },
@@ -2146,7 +2146,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Rampant crime" },
         {
           header: "Description",
-          result: "When fighting opponents from the Criminal Elements encounter list, add 1 to the number encountered.",
+          result: "When fighting opponents from the Criminal Elements encounter list, add 1 to the number encountered",
         },
       ],
     },
@@ -2154,7 +2154,7 @@ const worldTraitsTable: TableGenerator = {
       roll: "13-14",
       columns: [
         { header: "Trait", result: "Invasion risk" },
-        { header: "Description", result: "Add +1 to all Invasion rolls." },
+        { header: "Description", result: "Add +1 to all Invasion rolls" },
       ],
     },
     {
@@ -2163,7 +2163,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Imminent invasion" },
         {
           header: "Description",
-          result: "Add +2 to all Invasion rolls and if the world is invaded, rolls for war progress are at -1.",
+          result: "Add +2 to all Invasion rolls and if the world is invaded, rolls for war progress are at -1",
         },
       ],
     },
@@ -2173,7 +2173,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Lacks starship facilities" },
         {
           header: "Description",
-          result: "You cannot spend more than 3 credits per campaign turn on starship Repairs.",
+          result: "You cannot spend more than 3 credits per campaign turn on starship Repairs",
         },
       ],
     },
@@ -2181,28 +2181,28 @@ const worldTraitsTable: TableGenerator = {
       roll: "19-20",
       columns: [
         { header: "Trait", result: "Easy recruiting" },
-        { header: "Description", result: "Add +1 to the roll when Recruiting." },
+        { header: "Description", result: "Add +1 to the roll when Recruiting" },
       ],
     },
     {
       roll: "21-22",
       columns: [
         { header: "Trait", result: "Medical science" },
-        { header: "Description", result: "The cost for accelerated medical care is only 3 credits per character." },
+        { header: "Description", result: "The cost for accelerated medical care is only 3 credits per character" },
       ],
     },
     {
       roll: "23-24",
       columns: [
         { header: "Trait", result: "Technical knowledge" },
-        { header: "Description", result: "Add +1 to all Repair attempts." },
+        { header: "Description", result: "Add +1 to all Repair attempts" },
       ],
     },
     {
       roll: "25-26",
       columns: [
         { header: "Trait", result: "Opportunities" },
-        { header: "Description", result: "Add +1 to the roll when searching for Patrons." },
+        { header: "Description", result: "Add +1 to the roll when searching for Patrons" },
       ],
     },
     {
@@ -2212,7 +2212,7 @@ const worldTraitsTable: TableGenerator = {
         {
           header: "Description",
           result:
-            "When rolling for post-battle credit rewards, any 1 on the dice is rerolled until it shows a score other than 1.",
+            "When rolling for post-battle credit rewards, any 1 on the dice is rerolled until it shows a score other than 1",
         },
       ],
     },
@@ -2222,7 +2222,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Busy markets" },
         {
           header: "Description",
-          result: "Each campaign turn, you may spend 2 credits once to roll on the Trade Table.",
+          result: "Each campaign turn, you may spend 2 credits once to roll on the Trade Table",
         },
       ],
     },
@@ -2234,7 +2234,7 @@ const worldTraitsTable: TableGenerator = {
         {
           header: "Description",
           result:
-            "When attempting to leave, you must roll 2D6. On a 2-4, you are delayed and cannot leave this campaign turn without a bribe equal to the roll in credits. You may try again next campaign turn.",
+            "When attempting to leave, you must roll 2D6. On a 2-4, you are delayed and cannot leave this campaign turn without a bribe equal to the roll in credits. You may try again next campaign turn",
         },
       ],
     },
@@ -2242,14 +2242,14 @@ const worldTraitsTable: TableGenerator = {
       roll: "35-36",
       columns: [
         { header: "Trait", result: "Restricted education" },
-        { header: "Description", result: "You must roll 6+ to be approved for Advanced Training on this world." },
+        { header: "Description", result: "You must roll 6+ to be approved for Advanced Training on this world" },
       ],
     },
     {
       roll: "37-38",
       columns: [
         { header: "Trait", result: "Expensive education" },
-        { header: "Description", result: "The fee to enroll in Advanced Training is 3 credits." },
+        { header: "Description", result: "The fee to enroll in Advanced Training is 3 credits" },
       ],
     },
     {
@@ -2258,7 +2258,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Travel restricted" },
         {
           header: "Description",
-          result: "No more than one crew member may take the Explore option each campaign turn.",
+          result: "No more than one crew member may take the Explore option each campaign turn",
         },
       ],
     },
@@ -2266,7 +2266,7 @@ const worldTraitsTable: TableGenerator = {
       roll: "42-43",
       columns: [
         { header: "Trait", result: "Unity safe sector" },
-        { header: "Description", result: "The world cannot be Invaded." },
+        { header: "Description", result: "The world cannot be Invaded" },
       ],
     },
     {
@@ -2280,14 +2280,14 @@ const worldTraitsTable: TableGenerator = {
       roll: "47-48",
       columns: [
         { header: "Trait", result: "Bot manufacturing" },
-        { header: "Description", result: "All Bot upgrades are 1 credit cheaper." },
+        { header: "Description", result: "All Bot upgrades are 1 credit cheaper" },
       ],
     },
     {
       roll: "49-51",
       columns: [
         { header: "Trait", result: "Fuel refinery" },
-        { header: "Description", result: "Traveling from this world costs only 3 credits." },
+        { header: "Description", result: "Traveling from this world costs only 3 credits" },
       ],
     },
     {
@@ -2310,7 +2310,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Weapon licensing" },
         {
           header: "Description",
-          result: "Any weapon obtained through the Trade Table or purchased outright costs +1 credit.",
+          result: "Any weapon obtained through the Trade Table or purchased outright costs +1 credit",
         },
       ],
     },
@@ -2318,14 +2318,14 @@ const worldTraitsTable: TableGenerator = {
       roll: "56-57",
       columns: [
         { header: "Trait", result: "Import restrictions" },
-        { header: "Description", result: "You cannot sell any items on this world." },
+        { header: "Description", result: "You cannot sell any items on this world" },
       ],
     },
     {
       roll: "58-59",
       columns: [
         { header: "Trait", result: "Military outpost" },
-        { header: "Description", result: "Add +2 to Invasion rolls. Add +2 when checking for war progress." },
+        { header: "Description", result: "Add +2 to Invasion rolls. Add +2 when checking for war progress" },
       ],
     },
     {
@@ -2334,7 +2334,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Dangerous" },
         {
           header: "Description",
-          result: "When rolling on the Roving Threats Encounter Table, increase the number of opponents by +1.",
+          result: "When rolling on the Roving Threats Encounter Table, increase the number of opponents by +1",
         },
       ],
     },
@@ -2342,21 +2342,21 @@ const worldTraitsTable: TableGenerator = {
       roll: "63-64",
       columns: [
         { header: "Trait", result: "Shipyards" },
-        { header: "Description", result: "The cost of all Ship Components is reduced by 2 credits." },
+        { header: "Description", result: "The cost of all Ship Components is reduced by 2 credits" },
       ],
     },
     {
       roll: "65-67",
       columns: [
         { header: "Trait", result: "Barren" },
-        { header: "Description", result: "No plant features can be used on the battlefield." },
+        { header: "Description", result: "No plant features can be used on the battlefield" },
       ],
     },
     {
       roll: "68-69",
       columns: [
         { header: "Trait", result: "Vendetta system" },
-        { header: "Description", result: "Opponents become your Rivals on a roll of 1 or 2." },
+        { header: "Description", result: "Opponents become your Rivals on a roll of 1 or 2" },
       ],
     },
     {
@@ -2366,7 +2366,7 @@ const worldTraitsTable: TableGenerator = {
         {
           header: "Description",
           result:
-            "One crew member per campaign turn can roll twice when using the Trade Table, and choose either result.",
+            "One crew member per campaign turn can roll twice when using the Trade Table, and choose either result",
         },
       ],
     },
@@ -2377,7 +2377,7 @@ const worldTraitsTable: TableGenerator = {
         {
           header: "Description",
           result:
-            "+2 when rolling to find a Patron. Patrons are always Corporations. Failing a mission means being blacklisted.",
+            "+2 when rolling to find a Patron. Patrons are always Corporations. Failing a mission means being blacklisted",
         },
       ],
     },
@@ -2387,7 +2387,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Adventurous population" },
         {
           header: "Description",
-          result: "When successfully Recruiting, you may roll up one additional character and then choose who to hire.",
+          result: "When successfully Recruiting, you may roll up one additional character and then choose who to hire",
         },
       ],
     },
@@ -2407,7 +2407,7 @@ const worldTraitsTable: TableGenerator = {
       roll: "80-81",
       columns: [
         { header: "Trait", result: "Flat" },
-        { header: "Description", result: "Do not place any hills or raised ground on the battlefield." },
+        { header: "Description", result: "Do not place any hills or raised ground on the battlefield" },
       ],
     },
     {
@@ -2417,7 +2417,7 @@ const worldTraitsTable: TableGenerator = {
         { header: "Trait", result: "Fuel shortage" },
         {
           header: "Description",
-          result: "The cost to travel from this world is raised by 1D3 credits. You may roll each campaign turn.",
+          result: "The cost to travel from this world is raised by 1D3 credits. You may roll each campaign turn",
         },
       ],
     },
@@ -2432,7 +2432,7 @@ const worldTraitsTable: TableGenerator = {
       roll: "87-89",
       columns: [
         { header: "Trait", result: "High cost" },
-        { header: "Description", result: "Your crew size counts as being 2 higher for the purpose of Upkeep costs." },
+        { header: "Description", result: "Your crew size counts as being 2 higher for the purpose of Upkeep costs" },
       ],
     },
     {
@@ -2449,7 +2449,7 @@ const worldTraitsTable: TableGenerator = {
       roll: "92-93",
       columns: [
         { header: "Trait", result: "Null zone" },
-        { header: "Description", result: "No teleportation device of any type works." },
+        { header: "Description", result: "No teleportation device of any type works" },
       ],
     },
     {
@@ -2457,7 +2457,7 @@ const worldTraitsTable: TableGenerator = {
       skipDiceResolution: true,
       columns: [
         { header: "Trait", result: "Crystals" },
-        { header: "Description", result: "Place 2D6 crystals on the battlefield. If you don't have any, use rocks." },
+        { header: "Description", result: "Place 2D6 crystals on the battlefield. If you don't have any, use rocks" },
       ],
     },
     {
@@ -2476,9 +2476,9 @@ const readABookTable: SimpleGenerator = {
   title: "Read A Book",
   dice: 6,
   table: [
-    { roll: "1-2", result: "A random crew member earns +3 XP." },
-    { roll: "3-4", result: "A random crew member earns +2 XP and a second random crew member earns +1 XP." },
-    { roll: "5-6", result: "Three random crew each earn +1 XP." },
+    { roll: "1-2", result: "A random crew member earns +3 XP" },
+    { roll: "3-4", result: "A random crew member earns +2 XP and a second random crew member earns +1 XP" },
+    { roll: "5-6", result: "Three random crew each earn +1 XP" },
   ],
 };
 
@@ -2493,7 +2493,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Asteroids",
           result:
-            "Rocky debris everywhere, maybe from a recent collision? If you wish to avoid it, roll 1D6, requiring a 5+ to chart a safe path. If successful, roll again on this table.\nTo go through the field, select a crew member and roll 1D6+Savvy three times, requiring a 4+ to succeed each time.\nEach failed roll inflicts 1D6 Hull Point damage to the ship.",
+            "Rocky debris everywhere, maybe from a recent collision? If you wish to avoid it, roll 1D6, requiring a 5+ to chart a safe path. If successful, roll again on this table.\nTo go through the field, select a crew member and roll 1D6+Savvy three times, requiring a 4+ to succeed each time.\nEach failed roll inflicts 1D6 Hull Point damage to the ship",
         },
       ],
     },
@@ -2503,7 +2503,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Navigation trouble",
           result:
-            "Is this place even on the star maps? Lose 1 story point as you drift through empty space, then roll again on this table.\nIf your ship is currently suffering from Hull Point damage, and you roll this event, a random crew member must roll on the Injury Table, as system failures cause life support malfunctions across the vessel.",
+            "Is this place even on the star maps? Lose 1 story point as you drift through empty space, then roll again on this table.\nIf your ship is currently suffering from Hull Point damage, and you roll this event, a random crew member must roll on the Injury Table, as system failures cause life support malfunctions across the vessel",
         },
       ],
     },
@@ -2516,11 +2516,11 @@ const starshipTravelEventsTable: TableGenerator = {
             const enemyNumbers = Math.max(rollD6(), rollD6(), rollD6());
 
             return [
-              "Your vessel catches the eye of some pirates. Intimidation might work: Select a crew member and roll 1D6+Savvy. A 6+ is required to avoid conflict.",
+              "Your vessel catches the eye of some pirates. Intimidation might work: Select a crew member and roll 1D6+Savvy. A 6+ is required to avoid conflict",
               `Otherwise, set up a battle in cramped territory, using the Criminal Elements Encounter Table. Enemy numbers: ${enemyNumbers + 1} + the numbers indicated in the enemy table.`,
-              "There is no objective. If you drive them off, they flee back to their ship. If you lose, you lose all credits and everything in your Stash, though you can keep the ship.",
-              "If you win, you get the normal rewards for winning an Opportunity mission, plus a bonus roll on the Loot Table.",
-              "Note that this battle is an out of sequence encounter, and does not count as the main Battle stage for the campaign turn.",
+              "There is no objective. If you drive them off, they flee back to their ship. If you lose, you lose all credits and everything in your Stash, though you can keep the ship",
+              "If you win, you get the normal rewards for winning an Opportunity mission, plus a bonus roll on the Loot Table",
+              "Note that this battle is an out of sequence encounter, and does not count as the main Battle stage for the campaign turn",
             ].join("\n");
           },
         },
@@ -2532,7 +2532,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Deep space wreckage",
           result:
-            "You find an old wreck drifting through empty space. You get Roll twice on the Gear Subtable. Both items are damaged and need to be Repaired.",
+            "You find an old wreck drifting through empty space. You get Roll twice on the Gear Subtable. Both items are damaged and need to be Repaired",
         },
       ],
     },
@@ -2543,7 +2543,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Drive trouble",
           result:
-            "Its not supposed to make that sound.\nSelect 3 crew members and have each roll 1D6+Savvy.\nA 6+ is required for success. For each failure, you are grounded on the next world for one campaign turn while the drive is reset. Taking off before the drive is reset inflicts 2D6 Hull Point damage to the ship.",
+            "Its not supposed to make that sound.\nSelect 3 crew members and have each roll 1D6+Savvy.\nA 6+ is required for success. For each failure, you are grounded on the next world for one campaign turn while the drive is reset. Taking off before the drive is reset inflicts 2D6 Hull Point damage to the ship",
         },
       ],
     },
@@ -2553,7 +2553,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Down-time",
           result:
-            "Its a long time to just sit here.\nSelect a crew member of choice and add +1 XP. The crew has time to do maintenance tasks, and can Repair 1 damaged item with no roll required.",
+            "Its a long time to just sit here.\nSelect a crew member of choice and add +1 XP. The crew has time to do maintenance tasks, and can Repair 1 damaged item with no roll required",
         },
       ],
     },
@@ -2564,7 +2564,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Distress call",
           result:
-            "This is Licensed Trader Cyberwolf.\nIf you come to their aid, roll 1D6.\n1: The ships drive must have detonated moments after you received the signal. Your ship is struck by a wave of debris as you approach, suffering 1D6+1 Hull Point damage.\n2: You only find drifting wreckage.\n3-4: You can rescue a crew member. Treat this as the Escape Pod event.\n5-6: You arrive in time to help save the ship from a drive malfunction. Select a crew member and roll 1D6+Savvy. A 7+ is required to succeed, but you may make three attempts. If you succeed, the jubilant crew give you a bunch of stuff. Roll three times on the Gear Loot table. If you fail, the drive detonates, and your ship is damaged as if you had rolled a 1 on this subtable.",
+            "This is Licensed Trader Cyberwolf.\nIf you come to their aid, roll 1D6.\n1: The ships drive must have detonated moments after you received the signal. Your ship is struck by a wave of debris as you approach, suffering 1D6+1 Hull Point damage.\n2: You only find drifting wreckage.\n3-4: You can rescue a crew member. Treat this as the Escape Pod event.\n5-6: You arrive in time to help save the ship from a drive malfunction. Select a crew member and roll 1D6+Savvy. A 7+ is required to succeed, but you may make three attempts. If you succeed, the jubilant crew give you a bunch of stuff. Roll three times on the Gear Loot table. If you fail, the drive detonates, and your ship is damaged as if you had rolled a 1 on this subtable",
         },
       ],
     },
@@ -2579,7 +2579,7 @@ const starshipTravelEventsTable: TableGenerator = {
             const confiscatedItems = [roll1, roll2].filter((a) => a > 0).reduce((a, b) => a + b);
 
             return [
-              "A Unity patrol vessel hails you.",
+              "A Unity patrol vessel hails you",
               `${confiscatedItems} items being confiscated as contraband. You can give them any items carried or in your Stash. Due to the military presence, the next world you visit cannot be Invaded.`,
             ].join("\n");
           },
@@ -2592,7 +2592,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Cosmic phenomenon",
           result:
-            "A crew member sees a strange manifestation in space. When they ask around, nobody else saw anything, and the ships computers confirm nothing was there.\nThe crew member adds +1 Luck (if they are able). This event can only ever happen once in a campaign. Treat as nothing happening, if it happens again.\nIf you have a Precursor in the crew, they predict its a good omen. Add +1 story point as well.",
+            "A crew member sees a strange manifestation in space. When they ask around, nobody else saw anything, and the ships computers confirm nothing was there.\nThe crew member adds +1 Luck (if they are able). This event can only ever happen once in a campaign. Treat as nothing happening, if it happens again.\nIf you have a Precursor in the crew, they predict its a good omen. Add +1 story point as well",
         },
       ],
     },
@@ -2603,7 +2603,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Escape pod",
           result:
-            "You find an escape pod drifting through space. If you opt to rescue them, roll 1D6.\n1: Theyre a wanted criminal. If you let them go when you arrive on the next world, they might do you a favor later. The next time you make a new Rival, roll 4+ on 1D6 to immediately remove the Rivals from the campaign. If you turn them in, claim 1D6 credits, but get a Rival from their old gang.\n2-3: They reward you with 1D3 credits and a roll on the Loot Table when you arrive on the nearest world.\n4: They have nothing to pay you with, but do have some interesting information. Add 1 Quest Rumor and 1 story point.\n5: They are willing to join your crew. Roll up a new character, but they come with no equipment at all. If you dont want to hire them, they just leave at the next world.\n6: As entry 5, but the character begins play with 10 XP as yet unspent.",
+            "You find an escape pod drifting through space. If you opt to rescue them, roll 1D6.\n1: Theyre a wanted criminal. If you let them go when you arrive on the next world, they might do you a favor later. The next time you make a new Rival, roll 4+ on 1D6 to immediately remove the Rivals from the campaign. If you turn them in, claim 1D6 credits, but get a Rival from their old gang.\n2-3: They reward you with 1D3 credits and a roll on the Loot Table when you arrive on the nearest world.\n4: They have nothing to pay you with, but do have some interesting information. Add 1 Quest Rumor and 1 story point.\n5: They are willing to join your crew. Roll up a new character, but they come with no equipment at all. If you dont want to hire them, they just leave at the next world.\n6: As entry 5, but the character begins play with 10 XP as yet unspent",
         },
       ],
     },
@@ -2613,7 +2613,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Accident",
           result:
-            "A crew member gets Injured while doing a routine maintenance task. They must rest up for one campaign turn to recover from the Injury, and one item they carry is damaged.",
+            "A crew member gets Injured while doing a routine maintenance task. They must rest up for one campaign turn to recover from the Injury, and one item they carry is damaged",
         },
       ],
     },
@@ -2623,7 +2623,7 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Travel-time",
           result:
-            "Local conditions force you to jump to the very edge of the system and approach under standard drives. Any Injured crew may rest for one campaign turn.",
+            "Local conditions force you to jump to the very edge of the system and approach under standard drives. Any Injured crew may rest for one campaign turn",
         },
       ],
     },
@@ -2632,14 +2632,14 @@ const starshipTravelEventsTable: TableGenerator = {
       columns: [
         {
           header: "Uneventful trip",
-          result: "A lot of time playing cards and cleaning guns.\nYou can Repair one damaged item.",
+          result: "A lot of time playing cards and cleaning guns.\nYou can Repair one damaged item",
         },
       ],
     },
     {
       roll: "86-91",
       columns: [
-        { header: "Time to reflect", result: "How is the story unfolding? What did it all mean?\nAdd +1 story point." },
+        { header: "Time to reflect", result: "How is the story unfolding? What did it all mean?\nAdd +1 story point" },
       ],
     },
     {
@@ -2649,9 +2649,7 @@ const starshipTravelEventsTable: TableGenerator = {
           header: "Time to read a book",
           result: () => {
             const result = getValue(rollD6(), readABookTable);
-            return ["Theres time to sit, have a read, and maybe even indulge in a bit of education.", result].join(
-              "\n",
-            );
+            return ["Theres time to sit, have a read, and maybe even indulge in a bit of education", result].join("\n");
           },
         },
       ],
@@ -2662,7 +2660,515 @@ const starshipTravelEventsTable: TableGenerator = {
         {
           header: "Locked in the library data by night",
           result:
-            "Pouring over old records and fragments of data, the captain has unearthed some intriguing information about the sector of space you are heading into.\nYou can roll up the planetary info (problems, conveniences, licensing requirements) for three worlds and select which you wish to visit, but due to fuel limitations, you must visit one of the three generated. All three generated worlds remain in the campaign, and can be visited later.",
+            "Pouring over old records and fragments of data, the captain has unearthed some intriguing information about the sector of space you are heading into.\nYou can roll up the planetary info (problems, conveniences, licensing requirements) for three worlds and select which you wish to visit, but due to fuel limitations, you must visit one of the three generated. All three generated worlds remain in the campaign, and can be visited later",
+        },
+      ],
+    },
+  ],
+};
+//#endregion
+
+//#region Campaign event
+const campaignEventsTable: TableGenerator = {
+  title: "Campaign Events Table",
+  dice: 100,
+  table: [
+    {
+      roll: "1-3",
+      columns: [
+        {
+          header: "You've met a friendly doc who doesn't ask too many questions",
+          result:
+            "Select up to two crew members in Sick Bay and reduce their Recovery time by one campaign turn each. If they recover, they can act normally next campaign turn",
+        },
+      ],
+    },
+    {
+      roll: "4-8",
+      columns: [
+        {
+          header: "The life support system on the ship needs upgrading badly",
+          result:
+            "Upgrading the life support system will cost 1D6 credits. The ship cannot be flown until this is paid. If your crew has an Engineer, have a discount of -1",
+        },
+      ],
+    },
+    {
+      roll: "9-12",
+      columns: [
+        {
+          header: "A chance meeting turns into a new ally",
+          result:
+            "Roll up a new character and add them to the crew, OR add +1 story point. You may decide after rolling up the new character",
+        },
+      ],
+    },
+    {
+      roll: "13-16",
+      columns: [{ header: "You've made friends among the locals", result: "+1 story point" }],
+    },
+    {
+      roll: "17-20",
+      columns: [{ header: "You managed to mouth off to the wrong people", result: "Add a Rival" }],
+    },
+    {
+      roll: "21-23",
+      columns: [
+        {
+          header: "An old nemesis has tracked you down",
+          result:
+            "Select a prior Rival, or roll up a new one. They will follow you from planet to planet until resolved and receive +1 when rolling for the number of enemies in a battle",
+        },
+      ],
+    },
+    {
+      roll: "24-26",
+      columns: [
+        {
+          header: "A shady character offers you a deal",
+          result: "Give him any one item of equipment, then roll on the Trade Table",
+        },
+      ],
+    },
+    {
+      roll: "27-30",
+      columns: [{ header: "You sell off some cargo you acquired on the last planet", result: "Earn 1D6 credits" }],
+    },
+    {
+      roll: "31-35",
+      columns: [{ header: "One of the crew overheard something interesting", result: "Add 1 Rumor" }],
+    },
+    {
+      roll: "36-38",
+      columns: [
+        {
+          header: 'You\'ve managed to settle some old "business".',
+          result:
+            "If you have any, you may remove one Rival of your choice. If you have no Rivals, your captain earns +1 XP instead",
+        },
+      ],
+    },
+    {
+      roll: "39-41",
+      columns: [
+        {
+          header: "An admirer wants to come along",
+          result:
+            "Gain a new crew member, if desired. They have only the base profile with no extra rolls, and bring no equipment. If your crew has any Feral members, the new member is also Feral",
+        },
+      ],
+    },
+    {
+      roll: "42-44",
+      columns: [
+        {
+          header: "An alien merchant offers you some strange device",
+          result: "If you want to buy it, pay 4 credits and then roll on the Loot Table",
+        },
+      ],
+    },
+    {
+      roll: "45-48",
+      columns: [
+        {
+          header: "Equipment malfunction",
+          result: "If there are any items in your Stash, a random item is damaged and must be Repaired",
+        },
+      ],
+    },
+    {
+      roll: "49-51",
+      columns: [
+        {
+          header: "You've earned a bit of a bad reputation",
+          result:
+            "If you know any Patrons on the current world, randomly select one that will no longer work with you. If you have no Patrons, shrug and move on",
+        },
+      ],
+    },
+    {
+      roll: "52-56",
+      columns: [
+        {
+          header: "The tax man is taking an interest in your business conduct",
+          result: "Pay 2Dh6 credits. If you have insufficient credits your ship is impounded until you can pay",
+        },
+      ],
+    },
+    {
+      roll: "57-59",
+      columns: [
+        {
+          header: "The crew has decided it's time for a new person to be in charge",
+          result: () => {
+            const capLeaves =
+              rollD6() === 1
+                ? "The old captain leaves the campaign permanently, taking any items carried with them. "
+                : "";
+            return `Select a crew member to be the new captain. They immediately receive 3 XP.${capLeaves} If your crew has any K'Erin, one of them must be selected, or they will leave.`;
+          },
+        },
+      ],
+    },
+    {
+      roll: "60-63",
+      columns: [
+        { header: "You've made some business contacts", result: "Add a new Patron to the list of those known" },
+      ],
+    },
+    {
+      roll: "64-66",
+      columns: [
+        { header: "Recent events made for a good learning opportunity", result: "Every crew member receives +1 XP" },
+      ],
+    },
+    {
+      roll: "67-70",
+      columns: [
+        {
+          header: "During routine maintenance, the gravitational adjuster got knocked out of alignment",
+          result: "Your ship suffers 1D6 points of Hull Point damage",
+        },
+      ],
+    },
+    {
+      roll: "71-74",
+      columns: [
+        { header: "The crew spends a night drinking, watching movies, and playing cards", result: "+1 story point" },
+      ],
+    },
+    {
+      roll: "75-78",
+      columns: [
+        {
+          header: "You meet up with an old arms dealer contact who owes you a deal",
+          result:
+            "Add your choice of 3 weapons from the following list: Hand Cannons, Military Rifles, Shotguns, or Machine Pistols",
+        },
+      ],
+    },
+    {
+      roll: "79-81",
+      columns: [
+        {
+          header: "You renegotiate some old debts",
+          result:
+            "If you currently owe money, reduce your debt by 1D6+1 credits. If you owe nothing, earn 2 credits for being prudent with your money",
+        },
+      ],
+    },
+    {
+      roll: "82-84",
+      columns: [
+        {
+          header: "The sector news networks are awash with rumors of war",
+          result: "While you remain on this planet, any roll for Invasion is at +2",
+        },
+      ],
+    },
+    {
+      roll: "85-88",
+      columns: [
+        {
+          header: "A bit of time on your hands",
+          result:
+            "The crew has a few days to do their own thing. Select two crew members at random and have each make a roll on the Exploration Table",
+        },
+      ],
+    },
+    {
+      roll: "89-91",
+      columns: [
+        {
+          header: "You got noticed by someone you'd rather avoid",
+          result:
+            "Add a Rival. If you currently are on a Quest, the next campaign turn is automatically a battle against the new Rival, and they will add +1 to the number of enemies",
+        },
+      ],
+    },
+    {
+      roll: "92-94",
+      columns: [
+        {
+          header: "It's time to go!",
+          result: "Whatever you did, every campaign turn you stay on this planet, you must add an additional Rival",
+        },
+      ],
+    },
+    {
+      roll: "95-97",
+      columns: [
+        {
+          header: "Unity government says no ships are authorized to leave",
+          result: "You cannot leave the planet during the next two campaign turns",
+        },
+      ],
+    },
+    {
+      roll: "98-100",
+      columns: [
+        {
+          header: "In hindsight, it'll make a great story",
+          result:
+            "Select a crew member who was a casualty last battle. They receive +1 Luck. If nobody got hurt, receive +1 story point instead",
+        },
+      ],
+    },
+  ],
+};
+//#endregion
+
+//#region Character events
+const characterEventsTable: TableGenerator = {
+  title: "Character Events Table",
+  dice: 100,
+  table: [
+    {
+      roll: "1-3",
+      columns: [
+        {
+          header: "All this endless violence is depressing you",
+          result:
+            "The character refuses to participate in any battle during the next campaign turn (except for an Invasion battle). Get +1 story point, as they get a new perspective on life. K'Erin are unaffected by this",
+        },
+      ],
+    },
+    {
+      roll: "4-6",
+      columns: [
+        {
+          header: "You have some business to attend to elsewhere",
+          result:
+            "The character is unavailable for the next two campaign turns. They require no Upkeep during this time, and cannot be the target of any events. When they return, award them 1D6 XP and Roll once on the Loot Table. If the character is Swift, they never return but are replaced with a brand new Swift character rolled up normally",
+        },
+      ],
+    },
+    {
+      roll: "7-10",
+      columns: [{ header: "You make some local friends", result: "The character earns +1 XP" }],
+    },
+    {
+      roll: "11-12",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "You are starting to wonder if it is time to move on",
+          result:
+            "If the character is currently in Sick Bay, roll 1D6. If the roll is equal or below the number of campaign turns of recovery left, they will decide to leave the crew",
+        },
+      ],
+    },
+    {
+      roll: "13-15",
+      columns: [
+        {
+          header: "You get a letter from home",
+          result: () => `The character earns +1 XP.${rollD6() >= 5 ? " You immediately receive a Quest" : ""}`,
+        },
+      ],
+    },
+    {
+      roll: "16-19",
+      columns: [
+        {
+          header: "You argue with the rest of the crew",
+          result:
+            "During the next campaign turn, the crew member refuses to do any tasks but will participate in battle normally",
+        },
+      ],
+    },
+    {
+      roll: "20-23",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "You get in a scrap with another crew member",
+          result:
+            "Randomly select another crew member and roll 1D6+Combat Skill for each. The lower score must spend one campaign turn in Sick Bay. On a draw, both go to Sick Bay. If a K'Erin is in the crew, you must fight them",
+        },
+      ],
+    },
+    {
+      roll: "24-26",
+      columns: [
+        {
+          header: "The local food is sitting well with you",
+          result:
+            "If in Sick Bay, reduce your recovery time by one campaign turn. If not, earn +1 XP. Engineers receive no benefit from this",
+        },
+      ],
+    },
+    {
+      roll: "27-29",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "You are not sure you are really the same person any longer",
+          result:
+            "Roll on the Motivation Table and change to that motivation. You do not receive any items or resources, but if the new motivation would have any ability score bonuses, earn +1 XP for each +1 ability score you would have received normally. If you roll the current motivation, the character becomes particularly self-assured. Earn +1 story point",
+        },
+      ],
+    },
+    {
+      roll: "30-33",
+      columns: [
+        {
+          header: "It is time for a make-over!",
+          result:
+            "The character changes their clothes, hair-style, or something else. This is only cosmetic. If you are able to, reflect this on the miniature",
+        },
+      ],
+    },
+    {
+      roll: "34-38",
+      columns: [{ header: "Overhear something useful", result: "Earn 1 Quest Rumor" }],
+    },
+    {
+      roll: "39-41",
+      columns: [{ header: "Earn a little on the side", result: "Receive +2 credits" }],
+    },
+    {
+      roll: "42-45",
+      columns: [
+        {
+          header: "Have a heart to heart talk with a crew member",
+          result: "Select a random crew member. Both earn +1 XP",
+        },
+      ],
+    },
+    {
+      roll: "46-48",
+      columns: [{ header: "Time spent exercising is never wasted", result: "Earn +2 XP" }],
+    },
+    {
+      roll: "49-51",
+      columns: [
+        {
+          header: "You pick up an unusual hobby",
+          result:
+            "Earn +1 story point and the character talks about it constantly. If the character is Swift or Precursor, they also earn +2 XP",
+        },
+      ],
+    },
+    {
+      roll: "52-55",
+      columns: [
+        {
+          header: "The scars tell the story",
+          result: "If the character was injured in any way last or this campaign turn, they earn +2 XP",
+        },
+      ],
+    },
+    {
+      roll: "56-59",
+      columns: [{ header: "You've had time to reflect on your adventures", result: "Earn +1D3 XP" }],
+    },
+    {
+      roll: "60-62",
+      columns: [
+        {
+          header: "You've made a real personal breakthrough",
+          result:
+            "Select one ability score that has not been increased from its starting value when the character entered the campaign. It increases by +1 immediately",
+        },
+      ],
+    },
+    {
+      roll: "63-66",
+      columns: [
+        {
+          header: "You get hurt while working on the ship",
+          result: "Spend one campaign turn in Sick Bay, and the ship takes 1 Hull Point damage",
+        },
+      ],
+    },
+    {
+      roll: "67-68",
+      columns: [
+        {
+          header: "You have finally found true love in this bleak universe",
+          result:
+            "If the characters motivation was True Love, they earn +1D6 XP. Regardless, get +1 story point. And it's a rather nice thought, isn't it?",
+        },
+      ],
+    },
+    {
+      roll: "69-71",
+      columns: [
+        {
+          header: "A personal enemy has tracked you down",
+          result: "Add a Rival. If this character leaves your crew, the Rival also leaves",
+        },
+      ],
+    },
+    {
+      roll: "72-75",
+      columns: [{ header: "Someone has sent you a gift", result: "Loot Table" }],
+    },
+    {
+      roll: "76-78",
+      columns: [
+        {
+          header: "You feel great. Eating well must be paying off",
+          result:
+            "Put a note on your record sheet: Next time this character would be forced to roll on the Injury Table, the roll is ignored. Engineers cannot benefit from this event",
+        },
+      ],
+    },
+    {
+      roll: "79-82",
+      columns: [{ header: "You know someone who knows someone", result: "Add a Patron" }],
+    },
+    {
+      roll: "83-84",
+      columns: [{ header: "Maybe you are leading a charmed existence?", result: "Add +1 Luck" }],
+    },
+    {
+      roll: "85-87",
+      columns: [
+        {
+          header: "You've put in a lot of hard work around here",
+          result:
+            "Either repair 2 Hull Point damage or Repair one damaged item in the inventory. Engineers may do both",
+        },
+      ],
+    },
+    {
+      roll: "88-91",
+      columns: [
+        {
+          header: "They don't make them like they used to",
+          result:
+            "A random item carried by the character is damaged, and must be Repaired before it can be used again. Engineers are not affected by this event",
+        },
+      ],
+    },
+    {
+      roll: "92-94",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "Where did it go?",
+          result:
+            "A random item carried by the character has been lost. When rolling for a Character Event next campaign turn, roll 1D6+Savvy as well. On a 5+, the item turns up again, otherwise it is lost for good",
+        },
+      ],
+    },
+    {
+      roll: "95-97",
+      columns: [
+        {
+          header: "A deep feeling of melancholy and despair is afflicting you",
+          result: "The character will earn no XP next campaign turn. K'Erin are not affected by this event",
+        },
+      ],
+    },
+    {
+      roll: "98-100",
+      columns: [
+        {
+          header: "You've had a lot of time to burn",
+          result: "Next campaign turn, the character may perform an additional action, even if they are in Sick Bay",
         },
       ],
     },
@@ -2722,5 +3228,9 @@ export const generators = {
   "World Traits Table": worldTraitsTable,
 
   "Starship Travel Events Table": starshipTravelEventsTable,
+
+  "Campaign Events Table": campaignEventsTable,
+
+  "Character Events Table": characterEventsTable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion

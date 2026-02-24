@@ -69,3 +69,7 @@ export const generateJob = (): string => {
 export const generateWorldTrait = (): string => getValue(rollD100(), gen.generators["World Traits Table"]);
 
 export const generateStarshipEvent = (): string => getValue(rollD100(), gen.generators["Starship Travel Events Table"]);
+
+export const generateCampaignEvent = (): string => getValue(rollD100(), gen.generators["Campaign Events Table"]);
+
+export const generateCharacterEvent = (): string => getValue(rollD100(), gen.generators["Character Events Table"]);
