@@ -17,7 +17,5 @@
   "background_color": "#ffffff",
   "start_url": "https://ybogomolov.me/5pfh",
   "display": "standalone",
-  "display_override": [
-    "window-controls-overlay"
-  ]
+  "display_override": ["window-controls-overlay"]
 }
