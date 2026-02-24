@@ -11,8 +11,7 @@
     "lint": "eslint .",
     "format": "prettier . --write",
     "preview": "vite preview",
-    "test": "vitest",
-    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/logo.png "
+    "test": "vitest"
   },
   "dependencies": {
     "@left4code/svg-renderer": "^1.0.4",
@@ -33,7 +32,6 @@
     "@types/node": "^24.10.13",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
-    "@vite-pwa/assets-generator": "^1.0.2",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "eslint": "^9.39.3",
     "eslint-config-prettier": "^10.1.8",
