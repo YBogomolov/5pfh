@@ -14,7 +14,7 @@ export function Section({ title, children }: SectionProps): React.ReactElement {
     >
       <span
         id={`section-title-${title.replace(/\s+/g, "-").toLowerCase()}`}
-        className="absolute -top-3 left-3 bg-black px-2 text-sm font-medium text-accent"
+        className="absolute -top-3 left-3 bg-background px-2 text-sm font-medium text-accent"
       >
         {title}
       </span>

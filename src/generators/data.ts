@@ -1,4 +1,4 @@
-import { rollD10, rollDice } from "@/lib/random";
+import { rollD10, rollD6, rollDice } from "@/lib/random";
 import type { SimpleGenerator, TableGenerator } from "@/lib/types";
 import { getValue } from "./utils";
 
@@ -2471,6 +2471,205 @@ const worldTraitsTable: TableGenerator = {
 };
 //#endregion
 
+//#region Starship travel events
+const readABookTable: SimpleGenerator = {
+  title: "Read A Book",
+  dice: 6,
+  table: [
+    { roll: "1-2", result: "A random crew member earns +3 XP." },
+    { roll: "3-4", result: "A random crew member earns +2 XP and a second random crew member earns +1 XP." },
+    { roll: "5-6", result: "Three random crew each earn +1 XP." },
+  ],
+};
+
+const starshipTravelEventsTable: TableGenerator = {
+  title: "Starship Travel Events Table",
+  dice: 100,
+  table: [
+    {
+      roll: "1-7",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "Asteroids",
+          result:
+            "Rocky debris everywhere, maybe from a recent collision? If you wish to avoid it, roll 1D6, requiring a 5+ to chart a safe path. If successful, roll again on this table.\nTo go through the field, select a crew member and roll 1D6+Savvy three times, requiring a 4+ to succeed each time.\nEach failed roll inflicts 1D6 Hull Point damage to the ship.",
+        },
+      ],
+    },
+    {
+      roll: "8-12",
+      columns: [
+        {
+          header: "Navigation trouble",
+          result:
+            "Is this place even on the star maps? Lose 1 story point as you drift through empty space, then roll again on this table.\nIf your ship is currently suffering from Hull Point damage, and you roll this event, a random crew member must roll on the Injury Table, as system failures cause life support malfunctions across the vessel.",
+        },
+      ],
+    },
+    {
+      roll: "13-17",
+      columns: [
+        {
+          header: "Raided",
+          result: () => {
+            const enemyNumbers = Math.max(rollD6(), rollD6(), rollD6());
+
+            return [
+              "Your vessel catches the eye of some pirates. Intimidation might work: Select a crew member and roll 1D6+Savvy. A 6+ is required to avoid conflict.",
+              `Otherwise, set up a battle in cramped territory, using the Criminal Elements Encounter Table. Enemy numbers: ${enemyNumbers + 1} + the numbers indicated in the enemy table.`,
+              "There is no objective. If you drive them off, they flee back to their ship. If you lose, you lose all credits and everything in your Stash, though you can keep the ship.",
+              "If you win, you get the normal rewards for winning an Opportunity mission, plus a bonus roll on the Loot Table.",
+              "Note that this battle is an out of sequence encounter, and does not count as the main Battle stage for the campaign turn.",
+            ].join("\n");
+          },
+        },
+      ],
+    },
+    {
+      roll: "18-25",
+      columns: [
+        {
+          header: "Deep space wreckage",
+          result:
+            "You find an old wreck drifting through empty space. You get Roll twice on the Gear Subtable. Both items are damaged and need to be Repaired.",
+        },
+      ],
+    },
+    {
+      roll: "26-29",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "Drive trouble",
+          result:
+            "Its not supposed to make that sound.\nSelect 3 crew members and have each roll 1D6+Savvy.\nA 6+ is required for success. For each failure, you are grounded on the next world for one campaign turn while the drive is reset. Taking off before the drive is reset inflicts 2D6 Hull Point damage to the ship.",
+        },
+      ],
+    },
+    {
+      roll: "30-38",
+      columns: [
+        {
+          header: "Down-time",
+          result:
+            "Its a long time to just sit here.\nSelect a crew member of choice and add +1 XP. The crew has time to do maintenance tasks, and can Repair 1 damaged item with no roll required.",
+        },
+      ],
+    },
+    {
+      roll: "39-44",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "Distress call",
+          result:
+            "This is Licensed Trader Cyberwolf.\nIf you come to their aid, roll 1D6.\n1: The ships drive must have detonated moments after you received the signal. Your ship is struck by a wave of debris as you approach, suffering 1D6+1 Hull Point damage.\n2: You only find drifting wreckage.\n3-4: You can rescue a crew member. Treat this as the Escape Pod event.\n5-6: You arrive in time to help save the ship from a drive malfunction. Select a crew member and roll 1D6+Savvy. A 7+ is required to succeed, but you may make three attempts. If you succeed, the jubilant crew give you a bunch of stuff. Roll three times on the Gear Loot table. If you fail, the drive detonates, and your ship is damaged as if you had rolled a 1 on this subtable.",
+        },
+      ],
+    },
+    {
+      roll: "45-50",
+      columns: [
+        {
+          header: "Patrol ship",
+          result: () => {
+            const roll1 = rollD6() - 3;
+            const roll2 = rollD6() - 3;
+            const confiscatedItems = [roll1, roll2].filter((a) => a > 0).reduce((a, b) => a + b);
+
+            return [
+              "A Unity patrol vessel hails you.",
+              `${confiscatedItems} items being confiscated as contraband. You can give them any items carried or in your Stash. Due to the military presence, the next world you visit cannot be Invaded.`,
+            ].join("\n");
+          },
+        },
+      ],
+    },
+    {
+      roll: "51-53",
+      columns: [
+        {
+          header: "Cosmic phenomenon",
+          result:
+            "A crew member sees a strange manifestation in space. When they ask around, nobody else saw anything, and the ships computers confirm nothing was there.\nThe crew member adds +1 Luck (if they are able). This event can only ever happen once in a campaign. Treat as nothing happening, if it happens again.\nIf you have a Precursor in the crew, they predict its a good omen. Add +1 story point as well.",
+        },
+      ],
+    },
+    {
+      roll: "54-60",
+      skipDiceResolution: true,
+      columns: [
+        {
+          header: "Escape pod",
+          result:
+            "You find an escape pod drifting through space. If you opt to rescue them, roll 1D6.\n1: Theyre a wanted criminal. If you let them go when you arrive on the next world, they might do you a favor later. The next time you make a new Rival, roll 4+ on 1D6 to immediately remove the Rivals from the campaign. If you turn them in, claim 1D6 credits, but get a Rival from their old gang.\n2-3: They reward you with 1D3 credits and a roll on the Loot Table when you arrive on the nearest world.\n4: They have nothing to pay you with, but do have some interesting information. Add 1 Quest Rumor and 1 story point.\n5: They are willing to join your crew. Roll up a new character, but they come with no equipment at all. If you dont want to hire them, they just leave at the next world.\n6: As entry 5, but the character begins play with 10 XP as yet unspent.",
+        },
+      ],
+    },
+    {
+      roll: "61-66",
+      columns: [
+        {
+          header: "Accident",
+          result:
+            "A crew member gets Injured while doing a routine maintenance task. They must rest up for one campaign turn to recover from the Injury, and one item they carry is damaged.",
+        },
+      ],
+    },
+    {
+      roll: "67-75",
+      columns: [
+        {
+          header: "Travel-time",
+          result:
+            "Local conditions force you to jump to the very edge of the system and approach under standard drives. Any Injured crew may rest for one campaign turn.",
+        },
+      ],
+    },
+    {
+      roll: "76-85",
+      columns: [
+        {
+          header: "Uneventful trip",
+          result: "A lot of time playing cards and cleaning guns.\nYou can Repair one damaged item.",
+        },
+      ],
+    },
+    {
+      roll: "86-91",
+      columns: [
+        { header: "Time to reflect", result: "How is the story unfolding? What did it all mean?\nAdd +1 story point." },
+      ],
+    },
+    {
+      roll: "92-95",
+      columns: [
+        {
+          header: "Time to read a book",
+          result: () => {
+            const result = getValue(rollD6(), readABookTable);
+            return ["Theres time to sit, have a read, and maybe even indulge in a bit of education.", result].join(
+              "\n",
+            );
+          },
+        },
+      ],
+    },
+    {
+      roll: "96-100",
+      columns: [
+        {
+          header: "Locked in the library data by night",
+          result:
+            "Pouring over old records and fragments of data, the captain has unearthed some intriguing information about the sector of space you are heading into.\nYou can roll up the planetary info (problems, conveniences, licensing requirements) for three worlds and select which you wish to visit, but due to fuel limitations, you must visit one of the three generated. All three generated worlds remain in the campaign, and can be visited later.",
+        },
+      ],
+    },
+  ],
+};
+//#endregion
+
 //#region ALL
 export const generators = {
   "Crew Type": crewType,
@@ -2521,5 +2720,7 @@ export const generators = {
   "Condtions Subtable": conditionsSubtable,
 
   "World Traits Table": worldTraitsTable,
+
+  "Starship Travel Events Table": starshipTravelEventsTable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion

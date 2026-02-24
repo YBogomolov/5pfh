@@ -17,6 +17,7 @@
 
   --font-orbitron: "Orbitron", sans-serif;
   --font-roboto: "Roboto", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
 }
 
 @utility container {
@@ -28,7 +29,7 @@
 }
 
 body {
-  @apply bg-background overflow-x-hidden bg-fixed antialiased text-sm font-orbitron text-foreground tracking-wider;
+  @apply bg-background overflow-x-hidden bg-fixed antialiased font-orbitron text-foreground tracking-wider;
   background-image:
     repeating-linear-gradient(
       0deg,
@@ -44,6 +45,11 @@ body {
       transparent 1px,
       transparent 35rem
     );
+}
+
+p {
+  @apply font-space-grotesk text-base;
+  font-weight: 400;
 }
 
 .typing-container {
