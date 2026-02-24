@@ -75,3 +75,5 @@ export const generateCampaignEvent = (): string => getValue(rollD100(), gen.gene
 export const generateCharacterEvent = (): string => getValue(rollD100(), gen.generators["Character Events Table"]);
 
 export const generateBattleEvent = (): string => getValue(rollD100(), gen.generators["Battle Events Table"]);
+
+export const generateBattlefieldFind = (): string => getValue(rollD100(), gen.generators["Battlefield Finds Table"]);

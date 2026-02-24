@@ -3426,6 +3426,52 @@ const battleEventsTable: TableGenerator = {
 };
 //#endregion
 
+//#region Battlefield finds
+const battlefieldFindsTable: SimpleGenerator = {
+  title: "Battlefield Finds Table",
+  dice: 100,
+  table: [
+    {
+      roll: "1-15",
+      result:
+        "Weapon: Randomly select a slain (but not Bailed) enemy from the battle. You may keep any weapons they were carrying",
+    },
+    {
+      roll: "16-25",
+      result: "Usable goods: Roll once on the Consumables Subtable. 1 dosage",
+    },
+    {
+      roll: "26-35",
+      result:
+        "Curious data stick / Invasion Evidence: You obtain a Quest Rumor. If the enemy is an Invasion Threat, you instead find Invasion Evidence. Earn +1 credit, and add +1 when checking for Invasion in the next step.",
+    },
+    {
+      roll: "36-45",
+      result: "Starship part: Redeemable as equivalent to 2 credits only when installing a Starship Component.",
+    },
+    {
+      roll: "46-60",
+      skipDiceResolution: true,
+      result:
+        "Personal trinket: On each planet you visit in the future, roll 2D6. On a 9+ you find the owner and receive a Loot roll as payment.",
+    },
+    {
+      roll: "61-75",
+      result: "Debris: 1D3 credits worth on the scrap market.",
+    },
+    {
+      roll: "76-90",
+      result:
+        "Vital info / Invasion Evidence: Turn in this information to get a Corporate Patron automatically on this world. If the enemy is an Invasion Threat, you instead find Invasion Evidence; if so, earn +1 credit and add +1 when checking for Invasion in the next step.",
+    },
+    {
+      roll: "91-100",
+      result: "Nothing of value: ...not one thing!",
+    },
+  ],
+};
+//#endregion
+
 //#region ALL
 export const generators = {
   "Crew Type": crewType,
@@ -3484,5 +3530,6 @@ export const generators = {
   "Character Events Table": characterEventsTable,
 
   "Battle Events Table": battleEventsTable,
+  "Battlefield Finds Table": battlefieldFindsTable,
 } as const satisfies Record<string, SimpleGenerator | TableGenerator>;
 //#endregion
