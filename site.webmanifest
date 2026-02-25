@@ -13,8 +13,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#14a0e6",
+  "background_color": "#081219",
   "start_url": "https://ybogomolov.me/5pfh",
   "display": "standalone",
   "display_override": ["window-controls-overlay"]
