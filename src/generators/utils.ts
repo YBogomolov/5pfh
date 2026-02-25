@@ -49,16 +49,17 @@ export const resolveDice = (value: string): string => {
   return localValue;
 };
 
-export const formatTableGeneratorEntry = (entry: TableGeneratorEntry, skipDiceResolution?: true): string => {
-  return entry.columns
+export const formatTableGeneratorEntry = (entry: TableGeneratorEntry, skipDiceResolution?: true): string =>
+  entry.columns
     .filter((col) => col.result !== "-")
-    .map((col) =>
-      (skipDiceResolution ?? entry.skipDiceResolution)
-        ? `${col.header}: ${col.result}`
-        : `${col.header}: ${resolveDice(typeof col.result === "string" ? col.result : col.result())}`,
-    )
+    .map((col) => {
+      const result = typeof col.result === "string" ? col.result : col.result();
+
+      return (skipDiceResolution ?? entry.skipDiceResolution)
+        ? `${col.header}: ${result}`
+        : `${col.header}: ${resolveDice(result)}`;
+    })
     .join("\n");
-};
 
 export function resolveRolls(row: SimpleGeneratorEntry, generator: SimpleGenerator): string;
 export function resolveRolls(row: TableGeneratorEntry, generator: TableGenerator): string;
