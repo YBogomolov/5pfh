@@ -1,6 +1,7 @@
-import { getValue } from "./utils";
-import { rollD100, roll2D6, rollD10 } from "@/lib/random";
+import { getValue, yesNo } from "./utils";
+import { rollD100, roll2D6, rollD10, rollD6 } from "@/lib/random";
 import * as gen from "./data";
+import { getPlanetName } from "./planets";
 
 export const generateCrewType = (): string => getValue(rollD100(), gen.generators["Crew Type"]);
 
@@ -67,6 +68,16 @@ export const generateJob = (): string => {
 };
 
 export const generateWorldTrait = (): string => getValue(rollD100(), gen.generators["World Traits Table"]);
+
+export const generateWorld = (): string => {
+  const trait = generateWorldTrait();
+  const requiresLicense = rollD6() >= 5;
+  const licenseCost = requiresLicense ? rollD6() : null;
+  const licenseInfo = requiresLicense ? `, ${licenseCost} CR` : "";
+  const name = getPlanetName();
+
+  return [`Name: ${name}`, trait, `Requires license: ${yesNo(requiresLicense)}${licenseInfo}`].join("\n");
+};
 
 export const generateStarshipEvent = (): string => getValue(rollD100(), gen.generators["Starship Travel Events Table"]);
 

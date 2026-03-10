@@ -123,3 +123,5 @@ export const getValue = (roll: number, generator: SimpleGenerator | TableGenerat
 
   throw new RangeError(`Roll ${roll} was not found in generator ${generator.title}`);
 };
+
+export const yesNo = (bool: boolean): "yes" | "no" => (bool ? "yes" : "no");

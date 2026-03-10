@@ -1,6 +1,6 @@
 import { Generator } from "@/components/Generator";
 import { Section } from "@/components/Section";
-import { generateStarshipEvent, generateWorldTrait } from "@/generators/api";
+import { generateStarshipEvent, generateWorld, generateWorldTrait } from "@/generators/api";
 
 export function TravelTab(): React.ReactElement {
   return (
@@ -9,8 +9,9 @@ export function TravelTab(): React.ReactElement {
         <Generator id="starship-event" label="Starship travel event" onGenerate={generateStarshipEvent} />
       </Section>
 
-      <Section title="World Traits">
+      <Section title="World">
         <Generator id="world-trait" label="Generate world trait" onGenerate={generateWorldTrait} />
+        <Generator id="world" label="Generate a new world" onGenerate={generateWorld} />
       </Section>
     </div>
   );
